@@ -12,7 +12,8 @@
 
 <body>
 
-<header id="header">
+<!-- HEADER -->
+<header>
   <div class="logo">TONY RYMER</div>
 
   <div class="menu-btn" id="menuBtn">☰</div>
@@ -26,34 +27,36 @@
   </nav>
 </header>
 
-<!-- ───────────────── HERO (CORREGIDO) ───────────────── -->
-<section class="hero" id="home">
-  
-  <div class="hero-content">
-    <h1>Tony Rymer</h1>
-    <p>Cellist · Performer · International Soloist</p>
-  </div>
 
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <h1>Tony Rymer</h1>
+    <p>Cellist · Performer · Soloist</p>
+  </div>
 </section>
+
 
 <!-- QUOTE -->
 <section>
   <div class="quote">
-    “A deeply expressive voice in the contemporary cello world, combining precision and emotional intensity.”
+    “A rare voice in contemporary cello performance, combining emotional depth with absolute technical clarity.”
   </div>
 </section>
+
 
 <!-- BIO -->
 <section id="bio">
   <h2>Biography</h2>
 
   <p class="bio">
-    Tony Rymer is an internationally performing cellist known for his expressive tone and refined musical interpretation.
-    He performs across Europe and the United States as a soloist and chamber musician.
+    Tony Rymer is an internationally performing cellist known for his expressive tone,
+    refined musical interpretation and strong stage presence across Europe and the United States.
   </p>
 
   <a class="btn" href="bio.html">Read more</a>
 </section>
+
 
 <!-- MEDIA -->
 <section id="media">
@@ -62,10 +65,12 @@
   <div class="video">
     <iframe
       src="https://www.youtube.com/embed/grtOob1WED0"
+      title="Tony Rymer Performance"
       allowfullscreen>
     </iframe>
   </div>
 </section>
+
 
 <!-- CALENDAR -->
 <section id="calendar">
@@ -76,7 +81,7 @@
       <strong>Berlin Philharmonie</strong><br>
       <span>12 March 2026</span>
     </div>
-    <a class="btn" href="#">Tickets</a>
+    <a class="ticket" href="#">Tickets</a>
   </div>
 
   <div class="event">
@@ -84,7 +89,7 @@
       <strong>Royal Albert Hall — London</strong><br>
       <span>18 April 2026</span>
     </div>
-    <a class="btn" href="#">Tickets</a>
+    <a class="ticket" href="#">Tickets</a>
   </div>
 
   <div style="text-align:center; margin-top:30px;">
@@ -92,44 +97,27 @@
   </div>
 </section>
 
+
 <!-- CONTACT -->
 <section id="contact">
   <h2>Contact</h2>
 
   <div class="contact">
-    <input placeholder="Name">
-    <input placeholder="Email">
+    <input type="text" placeholder="Name">
+    <input type="email" placeholder="Email">
     <textarea placeholder="Message"></textarea>
-    <button>Send message</button>
+    <button>Send</button>
   </div>
 </section>
 
+
 <!-- FOOTER -->
 <footer>
-  <div class="footer-container">
-
-    <div class="footer-left">
-      <div class="footer-title">TONY RYMER</div>
-      <p>Cellist · Performer · International Artist</p>
-    </div>
-
-    <div class="footer-center">
-      <a href="#home">Home</a>
-      <a href="#bio">Bio</a>
-      <a href="#media">Media</a>
-      <a href="#calendar">Calendar</a>
-      <a href="#contact">Contact</a>
-    </div>
-
-    <div class="footer-right">
-      <p>© 2026 All rights reserved</p>
-      <p>Management & Booking</p>
-    </div>
-
-  </div>
+  <p>© 2026 Tony Rymer — Cellist. All rights reserved.</p>
 </footer>
 
-<!-- MOBILE MENU -->
+
+<!-- MOBILE MENU SCRIPT -->
 <script>
 const nav = document.getElementById('nav');
 const btn = document.getElementById('menuBtn');
@@ -145,6 +133,7 @@ links.forEach(link => {
   });
 });
 
+// close when clicking outside
 document.addEventListener('click', (e) => {
   if (!nav.contains(e.target) && !btn.contains(e.target)) {
     nav.classList.remove('active');
