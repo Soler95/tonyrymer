@@ -90,7 +90,7 @@ body.nav-open { overflow: hidden; }
   color: var(--cream);
   text-decoration: none;
   transition: color 0.3s;
- margin-left: 0; 
+ margin-left: -10; 
 }
 .logo:hover { color: var(--gold-light); }
 
