@@ -1,134 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Tony Rymer — Cellist</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Tony Rymer — International Cellist. Soloist, chamber musician, and international performer."/>
+  <title>Tony Rymer — Cellist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- HEADER -->
-<header class="header">
-  <div class="logo">TONY RYMER</div>
+  <!-- Grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
 
-  <div class="menu-btn" id="menuBtn">☰</div>
-
-  <nav id="nav">
-    <a href="#home">Home</a>
-    <a href="#bio">Bio</a>
-    <a href="#media">Media</a>
-    <a href="#calendar">Calendar</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <p class="eyebrow">International Cellist</p>
-    <h1>Tony Rymer</h1>
-    <p class="sub">Soloist · Chamber Music · International Performer</p>
-  </div>
-
-  <div class="scroll">
-    <div class="line"></div>
-    <span>scroll</span>
-  </div>
-</section>
-
-<!-- QUOTE -->
-<section class="section center">
-  <p class="quote">
-    “A cellist of rare emotional intelligence and striking sonic depth.”
-    <span>International Music Review</span>
-  </p>
-</section>
-
-<!-- BIO -->
-<section id="bio" class="section">
-  <h2>Biography</h2>
-  <p class="text">
-    Tony Rymer is an internationally performing cellist known for expressive tone,
-    refined interpretation and stage presence across Europe and the United States.
-  </p>
-  <a class="btn" href="bio.html">Read more</a>
-</section>
-
-<!-- MEDIA -->
-<section id="media" class="section">
-  <h2>Featured Performance</h2>
-
-  <div class="video">
-    <iframe src="https://www.youtube.com/embed/grtOob1WED0" allowfullscreen></iframe>
-  </div>
-</section>
-
-<!-- CALENDAR -->
-<section id="calendar" class="section">
-  <h2>Upcoming Concerts</h2>
-
-  <div class="event">
-    <div>
-      <h3>Berlin Philharmonie</h3>
-      <p>12 March 2026</p>
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#home" class="logo">TONY RYMER</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav" id="nav" role="navigation">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#bio" class="nav-link">Bio</a>
+        <a href="#media" class="nav-link">Media</a>
+        <a href="#calendar" class="nav-link">Calendar</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
     </div>
-    <a class="ticket" href="#">Tickets</a>
-  </div>
+  </header>
 
-  <div class="event">
-    <div>
-      <h3>Royal Albert Hall</h3>
-      <p>18 April 2026</p>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="eyebrow">International Cellist</p>
+      <h1>Tony<br>Rymer</h1>
+      <div class="hero-divider" aria-hidden="true"></div>
+      <p class="sub">Soloist · Chamber Music · International Performer</p>
+      <a href="#bio" class="hero-cta">Discover</a>
     </div>
-    <a class="ticket" href="#">Tickets</a>
-  </div>
-</section>
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-  <h2>Contact</h2>
+  <!-- QUOTE -->
+  <section class="quote-section">
+    <div class="quote-inner" data-animate>
+      <div class="quote-mark" aria-hidden="true">"</div>
+      <blockquote>
+        A cellist of rare emotional intelligence<br>and striking sonic depth.
+      </blockquote>
+      <cite>— International Music Review</cite>
+    </div>
+  </section>
 
-  <form class="form">
-    <input type="text" placeholder="Name">
-    <input type="email" placeholder="Email">
-    <textarea placeholder="Message"></textarea>
-    <button class="btn" type="button">Send</button>
-  </form>
-</section>
+  <!-- BIO -->
+  <section id="bio" class="section">
+    <div class="section-inner bio-grid">
+      <div class="bio-text">
+        <div class="section-label" data-animate>Biography</div>
+        <h2 data-animate>The Artist</h2>
+        <p class="body-text" data-animate>
+          Tony Rymer is an internationally performing cellist known for expressive tone,
+          refined interpretation and commanding stage presence across Europe and the United States.
+          His playing bridges the classical tradition with a deeply personal voice.
+        </p>
+        <p class="body-text" data-animate>
+          A graduate of the Royal Academy of Music, Rymer has performed in the world's most
+          prestigious concert halls alongside leading orchestras and chamber ensembles,
+          bringing audiences to their feet from Berlin to New York.
+        </p>
+        <a class="btn" href="bio.html" data-animate>Read full biography</a>
+      </div>
+      <div class="bio-deco" data-animate aria-hidden="true">
+        <span class="deco-number">01</span>
+        <div class="deco-rule"></div>
+      </div>
+    </div>
+  </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div>
-    <div class="name">TONY RYMER</div>
-    <div class="role">Cellist · Performer</div>
-  </div>
+  <!-- MEDIA -->
+  <section id="media" class="section section--dark">
+    <div class="section-inner">
+      <div class="section-label" data-animate>Media</div>
+      <h2 data-animate>Featured Performance</h2>
+      <div class="video-wrapper" data-animate>
+        <div class="video-corners" aria-hidden="true">
+          <span class="corner tl"></span>
+          <span class="corner tr"></span>
+          <span class="corner bl"></span>
+          <span class="corner br"></span>
+        </div>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/grtOob1WED0"
+            title="Tony Rymer — Featured Performance"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <div class="center">
-    “Music is not played, it is revealed.”
-  </div>
+  <!-- CALENDAR -->
+  <section id="calendar" class="section">
+    <div class="section-inner">
+      <div class="section-label" data-animate>Performances</div>
+      <h2 data-animate>Upcoming Concerts</h2>
+      <div class="events">
+        <div class="event" data-animate>
+          <div class="event-date">
+            <span class="event-day">12</span>
+            <span class="event-month">MAR 2026</span>
+          </div>
+          <div class="event-info">
+            <h3>Berlin Philharmonie</h3>
+            <p>Berlin, Germany</p>
+          </div>
+          <a class="ticket-btn" href="#">Tickets →</a>
+        </div>
+        <div class="event" data-animate>
+          <div class="event-date">
+            <span class="event-day">18</span>
+            <span class="event-month">APR 2026</span>
+          </div>
+          <div class="event-info">
+            <h3>Royal Albert Hall</h3>
+            <p>London, United Kingdom</p>
+          </div>
+          <a class="ticket-btn" href="#">Tickets →</a>
+        </div>
+        <div class="event" data-animate>
+          <div class="event-date">
+            <span class="event-day">07</span>
+            <span class="event-month">JUN 2026</span>
+          </div>
+          <div class="event-info">
+            <h3>Carnegie Hall</h3>
+            <p>New York, USA</p>
+          </div>
+          <a class="ticket-btn" href="#">Tickets →</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <div class="links">
-    <a href="#">Instagram</a>
-    <a href="#">YouTube</a>
-  </div>
-</footer>
+  <!-- CONTACT -->
+  <section id="contact" class="section section--dark">
+    <div class="section-inner section-inner--narrow">
+      <div class="section-label" data-animate>Get in touch</div>
+      <h2 data-animate>Contact</h2>
+      <p class="body-text" data-animate>For bookings, press enquiries, and collaborations.</p>
+      <div class="form" data-animate>
+        <div class="form-group">
+          <input type="text" id="f-name" placeholder=" " autocomplete="off">
+          <label for="f-name">Name</label>
+          <div class="form-line"></div>
+        </div>
+        <div class="form-group">
+          <input type="email" id="f-email" placeholder=" " autocomplete="off">
+          <label for="f-email">Email</label>
+          <div class="form-line"></div>
+        </div>
+        <div class="form-group">
+          <textarea id="f-msg" placeholder=" " rows="5"></textarea>
+          <label for="f-msg">Message</label>
+          <div class="form-line"></div>
+        </div>
+        <button class="btn btn--full" type="button" id="sendBtn">Send Message</button>
+        <p class="form-success" id="formSuccess">Your message has been sent. Thank you.</p>
+      </div>
+    </div>
+  </section>
 
-<script>
-const nav = document.getElementById('nav');
-const btn = document.getElementById('menuBtn');
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-logo">TONY RYMER</div>
+        <div class="footer-role">Cellist · International Performer</div>
+      </div>
+      <div class="footer-center">
+        <p class="footer-quote">"Music is not played, it is revealed."</p>
+      </div>
+      <div class="footer-right">
+        <a href="#" class="footer-link">Instagram</a>
+        <a href="#" class="footer-link">YouTube</a>
+        <a href="#" class="footer-link">Spotify</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tony Rymer. All rights reserved.</span>
+    </div>
+  </footer>
 
-btn.addEventListener('click', () => {
-  nav.classList.toggle('active');
-});
+  <script>
+    /* ── Header scroll ── */
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
 
-document.querySelectorAll('#nav a').forEach(a => {
-  a.addEventListener('click', () => nav.classList.remove('active'));
-});
-</script>
+    /* ── Mobile nav ── */
+    const nav = document.getElementById('nav');
+    const btn = document.getElementById('menuBtn');
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      document.body.classList.toggle('nav-open', open);
+    });
+    document.querySelectorAll('.nav-link').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        btn.classList.remove('open');
+        document.body.classList.remove('nav-open');
+      });
+    });
 
+    /* ── Scroll animations ── */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          entry.target.style.transitionDelay = `${i * 60}ms`;
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+    /* ── Smooth scroll ── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    /* ── Contact form ── */
+    document.getElementById('sendBtn').addEventListener('click', () => {
+      const name   = document.getElementById('f-name').value.trim();
+      const email  = document.getElementById('f-email').value.trim();
+      const msg    = document.getElementById('f-msg').value.trim();
+      if (!name || !email || !msg) return;
+      const sendBtn = document.getElementById('sendBtn');
+      sendBtn.textContent = 'Sent ✓';
+      sendBtn.disabled = true;
+      document.getElementById('formSuccess').classList.add('show');
+    });
+  </script>
 </body>
 </html>
