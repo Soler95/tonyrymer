@@ -18,10 +18,11 @@ body{
   font-family:"Cormorant Garamond", Georgia, serif;
   background:#000;
   color:#fff;
+  line-height:1.7;
   overflow-x:hidden;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 .hero{
   height:100vh;
   display:flex;
@@ -45,23 +46,23 @@ body{
 }
 
 .hero h2{
-  font-size:18px;
+  font-size:16px;
   letter-spacing:6px;
   margin-top:10px;
-  opacity:.8;
+  opacity:.75;
   text-transform:uppercase;
 }
 
 .hero p{
-  max-width:700px;
+  max-width:720px;
   margin-top:20px;
   opacity:.85;
-  line-height:1.7;
+  font-size:18px;
 }
 
 .btn{
   margin-top:30px;
-  padding:12px 24px;
+  padding:12px 26px;
   border:1px solid white;
   color:white;
   text-decoration:none;
@@ -74,20 +75,20 @@ body{
   color:black;
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 section{
-  padding:90px 40px;
+  padding:100px 40px;
   max-width:1000px;
   margin:auto;
 }
 
 h3{
-  font-size:34px;
-  margin-bottom:25px;
+  font-size:36px;
+  margin-bottom:30px;
   letter-spacing:1px;
 }
 
-/* EVENTS */
+/* ================= EVENTS ================= */
 .event{
   display:flex;
   justify-content:space-between;
@@ -95,18 +96,25 @@ h3{
   padding:22px;
   border:1px solid rgba(255,255,255,.12);
   margin-bottom:15px;
+  transition:.3s;
 }
 
 .event:hover{
   border-color:rgba(255,255,255,.35);
 }
 
+.event strong{
+  font-size:18px;
+}
+
 .ticket{
-  padding:10px 16px;
+  padding:10px 18px;
   border:1px solid white;
   color:white;
   text-decoration:none;
   font-size:12px;
+  letter-spacing:1px;
+  transition:.3s;
 }
 
 .ticket:hover{
@@ -114,7 +122,7 @@ h3{
   color:black;
 }
 
-/* VIDEO */
+/* ================= VIDEO ================= */
 .video{
   position:relative;
   padding-top:56.25%;
@@ -129,19 +137,43 @@ h3{
   border:0;
 }
 
-/* BIO */
+/* ================= BIO ================= */
 .bio{
+  font-size:19px;
   line-height:1.9;
   opacity:.88;
-  font-size:18px;
+  max-width:850px;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer{
   text-align:center;
-  padding:50px 20px;
+  padding:60px 20px;
   border-top:1px solid rgba(255,255,255,.1);
   opacity:.7;
+  font-size:14px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width:768px){
+
+  .hero h1{
+    font-size:44px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  section{
+    padding:70px 20px;
+  }
+
+  .event{
+    flex-direction:column;
+    text-align:center;
+    gap:10px;
+  }
 }
 </style>
 </head>
@@ -193,13 +225,12 @@ footer{
 <section>
   <h3>Featured Performance</h3>
 
- <div class="video">
-<iframe
-  src="https://www.youtube.com/embed/grtOob1WED0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
-</div>
+  <div class="video">
+    <iframe
+      src="https://www.youtube.com/embed/grtOob1WED0"
+      allowfullscreen>
+    </iframe>
+  </div>
 </section>
 
 <!-- BIO -->
