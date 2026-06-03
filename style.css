@@ -14,7 +14,7 @@
   --gold-border: rgba(184, 144, 80, 0.22);
   --cream:       #ede8df;
   --cream-dim:   #c8c2b7;
-  --muted:       #D6D5CB;
+  --muted:       #6e6860;
   --font-serif:  'Cormorant Garamond', Georgia, serif;
   --font-sans:   'Jost', 'Helvetica Neue', sans-serif;
   --ease:        cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -62,7 +62,6 @@ body.nav-open { overflow: hidden; }
   top: 0; left: 0; right: 0;
   z-index: 500;
   height: var(--header-h);
-padding-left: 0;
   transition: background 0.5s var(--ease), border-bottom 0.5s var(--ease);
 }
 
@@ -76,7 +75,7 @@ padding-left: 0;
 .header-inner {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 48px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -91,7 +90,6 @@ padding-left: 0;
   color: var(--cream);
   text-decoration: none;
   transition: color 0.3s;
- margin-left: -150px; 
 }
 .logo:hover { color: var(--gold-light); }
 
@@ -814,11 +812,6 @@ h2 {
 
   .menu-btn { display: flex; }
 
-  .logo {
-    margin-left: 0; 
-  }
-}
-
   .nav {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -856,35 +849,23 @@ h2 {
 }
 
 @media (max-width: 560px) {
-  :root {
-    --section-pad: 70px;
-  }
+  :root { --section-pad: 70px; }
 
-  .hero-content {
-    padding: 0 20px;
-    max-width: 100%;
-    text-align: left;
-  }
-
-  .hero-content h1 {
-    font-size: 42px;
-    line-height: 1.1;
-  }
-
-  .hero-divider {
-    height: 40px;
-    margin: 24px 0;
-  }
-
+  .hero-content { padding: 0 28px; max-width: 100%; }
   .hero-overlay {
     background:
-      linear-gradient(to bottom,
-        rgba(9,8,10,0.75) 0%,
-        rgba(9,8,10,0.55) 60%,
-        rgba(9,8,10,0.40) 100%
+      linear-gradient(to right,
+        rgba(9,8,10,0.92) 0%,
+        rgba(9,8,10,0.82) 50%,
+        rgba(9,8,10,0.50) 100%
+      ),
+      linear-gradient(to top,
+        rgba(9,8,10,0.6) 0%,
+        transparent 40%
       );
   }
-}
+  .hero-content h1 { font-size: 72px; }
+  .hero-divider { height: 40px; margin: 24px 0; }
 
   blockquote { font-size: 22px; }
 
