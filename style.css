@@ -1,568 +1,309 @@
-/* ─────────────────────────────
-   SECTIONS
-───────────────────────────── */
-
-.section{
-  max-width:1200px;
-  margin:auto;
-  padding:140px 40px;
+:root{
+  --bg:#050505;
+  --text:#f5f1ea;
+  --muted:rgba(245,241,234,.65);
+  --accent:#c8a96e;
+  --line:rgba(255,255,255,.10);
 }
 
-.section-title{
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(38px,5vw,68px);
-  font-weight:300;
-  margin-bottom:70px;
-  text-align:center;
-  letter-spacing:1px;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-.section-title::after{
-  content:"";
-  display:block;
-  width:80px;
-  height:1px;
-  background:var(--accent);
-  margin:25px auto 0;
-}
-
-/* ─────────────────────────────
-   QUOTE
-───────────────────────────── */
-
-.quote{
-  max-width:850px;
-  margin:auto;
-  text-align:center;
-  font-size:clamp(22px,2.5vw,34px);
-  line-height:1.7;
-  font-family:"Cormorant Garamond";
-  font-style:italic;
-  color:rgba(255,255,255,.78);
-}
-
-/* ─────────────────────────────
-   BIO
-───────────────────────────── */
-
-.bio{
-  max-width:850px;
-  margin:auto;
-  color:var(--muted);
-  font-size:17px;
-  line-height:2;
-}
-
-.bio p{
-  margin-bottom:28px;
-}
-
-/* ─────────────────────────────
-   BUTTON
-───────────────────────────── */
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:12px;
-  margin-top:30px;
-  padding:16px 34px;
-  border:1px solid rgba(255,255,255,.18);
-  text-decoration:none;
+body{
+  font-family:Inter, sans-serif;
+  background:var(--bg);
   color:var(--text);
+  overflow-x:hidden;
+}
+
+/* HEADER */
+.header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  padding:22px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+}
+
+.logo{
+  font-family:"Cormorant Garamond", serif;
+  letter-spacing:4px;
+}
+
+nav{
+  display:flex;
+  gap:30px;
+}
+
+nav a{
   font-size:11px;
   letter-spacing:3px;
   text-transform:uppercase;
-  transition:.4s var(--ease);
+  color:var(--muted);
+  text-decoration:none;
+}
+
+nav a:hover{
+  color:var(--text);
+}
+
+/* MOBILE MENU */
+.menu-btn{
+  display:none;
+}
+
+@media(max-width:768px){
+  .menu-btn{display:block;}
+
+  nav{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:70%;
+    height:100vh;
+    background:#0a0a0a;
+    flex-direction:column;
+    padding:120px 30px;
+    transition:.4s ease;
+  }
+
+  nav.active{
+    right:0;
+  }
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:flex-end;
+  padding:0 60px 100px;
+  position:relative;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to top, rgba(0,0,0,.75), transparent),
+    url("https://images.unsplash.com/photo-1520523839897-bd0b52f945a0") center/cover;
+  z-index:-1;
+}
+
+.hero-content h1{
+  font-family:"Cormorant Garamond", serif;
+  font-size:clamp(50px,6vw,90px);
+  font-weight:300;
+}
+
+.sub{
+  color:var(--muted);
+  margin-top:10px;
+}
+
+.eyebrow{
+  color:var(--accent);
+  font-size:11px;
+  letter-spacing:3px;
+  margin-bottom:10px;
+}
+
+/* SCROLL */
+.scroll{
+  position:absolute;
+  right:40px;
+  bottom:40px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  font-size:10px;
+  letter-spacing:3px;
+  color:var(--muted);
+}
+
+.scroll .line{
+  width:1px;
+  height:60px;
+  background:var(--accent);
+  animation:scroll 1.6s infinite;
+}
+
+@keyframes scroll{
+  0%{transform:scaleY(0);}
+  50%{transform:scaleY(1);}
+  100%{transform:scaleY(0);}
+}
+
+/* SECTIONS */
+.section{
+  max-width:1000px;
+  margin:auto;
+  padding:120px 20px;
+}
+
+.center{
+  text-align:center;
+}
+
+h2{
+  font-family:"Cormorant Garamond", serif;
+  font-weight:300;
+  font-size:34px;
+  margin-bottom:40px;
+}
+
+/* TEXT */
+.text{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* QUOTE */
+.quote{
+  font-size:20px;
+  color:var(--muted);
+  font-style:italic;
+}
+
+.quote span{
+  display:block;
+  margin-top:10px;
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+/* BUTTON */
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 26px;
+  border:1px solid var(--text);
+  color:var(--text);
+  text-decoration:none;
+  font-size:10px;
+  letter-spacing:3px;
 }
 
 .btn:hover{
   background:var(--accent);
-  color:#000;
   border-color:var(--accent);
-  transform:translateY(-2px);
+  color:#000;
 }
 
-/* ─────────────────────────────
-   VIDEO
-───────────────────────────── */
-
-.video{
-  position:relative;
-  padding-top:56.25%;
-  overflow:hidden;
-  border-radius:20px;
-  border:1px solid rgba(255,255,255,.08);
-}
-
-.video iframe{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-/* ─────────────────────────────
-   EVENTS PREMIUM
-───────────────────────────── */
-
-.events{
-  max-width:1000px;
-  margin:auto;
-}
-
+/* EVENTS */
 .event{
-  display:grid;
-  grid-template-columns:120px 1fr auto;
-  gap:40px;
-  align-items:center;
-  padding:35px 0;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  transition:.4s ease;
-}
-
-.event:hover{
-  transform:translateX(8px);
-}
-
-.event-date{
-  font-family:"Cormorant Garamond";
-  font-size:42px;
-  color:var(--accent);
-  line-height:1;
-}
-
-.event-info h3{
-  font-size:18px;
-  font-weight:500;
-  margin-bottom:8px;
-}
-
-.event-info p{
-  color:var(--muted);
-  font-size:14px;
-}
-
-.event-link{
-  text-decoration:none;
-  color:var(--accent);
-  letter-spacing:2px;
-  font-size:11px;
-  text-transform:uppercase;
-}
-
-/* ─────────────────────────────
-   CONTACT PREMIUM
-───────────────────────────── */
-
-.contact{
-  display:grid;
-  grid-template-columns:1fr 1.1fr;
-  gap:100px;
-  align-items:start;
-}
-
-.contact-info h2{
-  font-family:"Cormorant Garamond";
-  font-size:58px;
-  font-weight:300;
-  line-height:1.1;
-  margin-bottom:30px;
-}
-
-.contact-info p{
-  color:var(--muted);
-  line-height:1.9;
-  margin-bottom:25px;
-}
-
-.contact-detail{
-  margin-bottom:20px;
-}
-
-.contact-detail span{
-  display:block;
-  color:var(--accent);
-  font-size:11px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin-bottom:5px;
-}
-
-.contact-detail a{
-  color:var(--text);
-  text-decoration:none;
-}
-
-.contact-form{
-  background:rgba(255,255,255,.02);
-  border:1px solid rgba(255,255,255,.08);
-  padding:45px;
-  border-radius:24px;
-  backdrop-filter:blur(10px);
-}
-
-.contact-form input,
-.contact-form textarea{
-  width:100%;
-  background:transparent;
-  border:none;
-  border-bottom:1px solid rgba(255,255,255,.12);
-  padding:18px 0;
-  margin-bottom:25px;
-  color:white;
-  font-size:15px;
-}
-
-.contact-form textarea{
-  min-height:140px;
-  resize:none;
-}
-
-.contact-form button{
-  padding:15px 28px;
-  background:transparent;
-  border:1px solid var(--accent);
-  color:var(--accent);
-  cursor:pointer;
-  transition:.3s;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-
-.contact-form button:hover{
-  background:var(--accent);
-  color:black;
-}
-
-/* ─────────────────────────────
-   SCROLL INDICATOR PREMIUM
-───────────────────────────── */
-
-.scroll-indicator{
-  position:absolute;
-  right:40px;
-  bottom:40px;
-  z-index:10;
   display:flex;
-  flex-direction:column;
+  justify-content:space-between;
   align-items:center;
-  gap:12px;
+  padding:22px 0;
+  border-bottom:1px solid var(--line);
 }
 
-.scroll-indicator span{
+.event h3{
+  font-weight:400;
+}
+
+.event p{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* TICKET */
+.ticket{
+  padding:10px 16px;
+  border:1px solid var(--line);
+  text-decoration:none;
+  color:var(--text);
   font-size:10px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.55);
-  writing-mode:vertical-rl;
 }
 
-.scroll-line{
-  width:1px;
-  height:90px;
-  background:rgba(255,255,255,.15);
-  position:relative;
-  overflow:hidden;
-}
-
-.scroll-line::before{
-  content:"";
-  position:absolute;
-  top:-30px;
-  left:0;
-  width:100%;
-  height:30px;
+.ticket:hover{
   background:var(--accent);
-  animation:scrollMove 2s infinite;
+  color:#000;
 }
 
-@keyframes scrollMove{
-  0%{
-    top:-30px;
-  }
-  100%{
-    top:100%;
-  }
+/* FORM */
+.form{
+  max-width:500px;
 }
 
-/* ─────────────────────────────
-   FOOTER PREMIUM
-───────────────────────────── */
+.form input,
+.form textarea{
+  width:100%;
+  padding:14px;
+  margin-bottom:12px;
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--text);
+}
 
+.form textarea{
+  height:120px;
+}
+
+/* FOOTER */
 .footer{
   display:grid;
-  grid-template-columns:1fr auto 1fr;
+  grid-template-columns:1fr 1fr 1fr;
+  padding:60px;
+  border-top:1px solid var(--line);
   align-items:center;
-  gap:50px;
-  padding:100px 60px;
-  border-top:1px solid rgba(255,255,255,.08);
 }
 
-.footer-name{
+.name{
   font-family:"Cormorant Garamond";
-  font-size:22px;
-  letter-spacing:6px;
 }
 
-.footer-role{
-  margin-top:10px;
-  color:rgba(255,255,255,.45);
+.role{
   font-size:11px;
-  letter-spacing:2px;
+  color:var(--muted);
 }
 
-.footer-center{
+.footer .center{
   text-align:center;
-}
-
-.footer-quote{
-  font-family:"Cormorant Garamond";
-  font-size:18px;
   font-style:italic;
-  color:rgba(255,255,255,.6);
 }
 
-.footer-right{
+.links{
   display:flex;
   justify-content:flex-end;
-  gap:26px;
+  gap:20px;
 }
 
-.footer-right a{
+.links a{
+  color:var(--muted);
   text-decoration:none;
-  color:rgba(255,255,255,.55);
   font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  transition:.3s;
 }
 
-.footer-right a:hover{
-  color:var(--accent);
-}
-
-/* ─────────────────────────────
-   MOBILE
-───────────────────────────── */
-
+/* MOBILE */
 @media(max-width:768px){
 
-  .section{
-    padding:90px 22px;
-  }
-
-  .section-title{
-    font-size:42px;
-    margin-bottom:50px;
-  }
-
-  .contact{
-    grid-template-columns:1fr;
-    gap:50px;
-  }
-
-  .contact-info h2{
-    font-size:42px;
-  }
-
-  .contact-form{
-    padding:30px;
-  }
-
-  .event{
-    grid-template-columns:1fr;
-    gap:12px;
-    padding:28px 0;
-  }
-
-  .event-date{
-    font-size:30px;
+  .hero{
+    padding:0 20px 80px;
   }
 
   .footer{
     grid-template-columns:1fr;
     text-align:center;
-    padding:70px 24px;
+    gap:20px;
   }
 
-  .footer-right{
+  .links{
     justify-content:center;
-    flex-wrap:wrap;
   }
 
-  .scroll-indicator{
-    right:18px;
-    bottom:25px;
+  .event{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
   }
-
-  .scroll-line{
-    height:60px;
-  }
-}
-/* =========================
-   PREMIUM SYSTEM FIX
-========================= */
-
-body{
-  letter-spacing: 0.2px;
-}
-
-/* HEADINGS */
-h2{
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 300;
-  font-size: clamp(28px, 3vw, 42px);
-  letter-spacing: 1px;
-  margin-bottom: 50px;
-  position: relative;
-}
-
-h2::after{
-  content:"";
-  display:block;
-  width:60px;
-  height:1px;
-  background:var(--accent);
-  margin-top:14px;
-  opacity:.6;
-}
-
-/* SECTIONS */
-.section{
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 140px 24px;
-}
-
-/* BIO TEXT */
-.bio{
-  max-width: 700px;
-  font-size: 15px;
-  line-height: 1.9;
-  color: var(--muted);
-}
-
-/* BUTTONS UNIFY */
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:14px 28px;
-  border:1px solid rgba(255,255,255,.25);
-  background:transparent;
-  color:var(--text);
-  font-size:10px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  transition:.4s var(--ease);
-}
-
-.btn:hover{
-  background:var(--accent);
-  border-color:var(--accent);
-  color:#000;
-  transform: translateY(-2px);
-}
-
-/* =========================
-   EVENTS — PREMIUM LIST
-========================= */
-
-.event{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:26px 0;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  transition:.3s ease;
-}
-
-.event:hover{
-  border-color: rgba(200,169,110,.4);
-  transform: translateX(6px);
-}
-
-.event strong{
-  display:block;
-  font-size:15px;
-  font-weight:400;
-  letter-spacing:0.5px;
-}
-
-.event span{
-  display:block;
-  font-size:11px;
-  color: var(--muted);
-  margin-top:6px;
-}
-
-/* ticket button upgrade */
-.ticket{
-  font-size:10px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  padding:10px 16px;
-  border:1px solid rgba(255,255,255,.2);
-  transition:.3s ease;
-}
-
-.ticket:hover{
-  background:var(--accent);
-  border-color:var(--accent);
-  color:#000;
-}
-
-/* =========================
-   CONTACT — CLEAN LUXURY FORM
-========================= */
-
-.contact{
-  max-width:600px;
-}
-
-.contact input,
-.contact textarea{
-  width:100%;
-  padding:14px 0;
-  margin-bottom:18px;
-  border:none;
-  border-bottom:1px solid rgba(255,255,255,.15);
-  background:transparent;
-  color:var(--text);
-  outline:none;
-  transition:.3s;
-}
-
-.contact input:focus,
-.contact textarea:focus{
-  border-bottom-color: var(--accent);
-}
-
-.contact textarea{
-  min-height:120px;
-  resize:none;
-}
-
-/* =========================
-   QUOTE SECTION LUXURY
-========================= */
-
-.quote{
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 20px;
-  line-height: 1.8;
-  text-align:center;
-  color: var(--muted);
-}
-
-.quote span{
-  display:block;
-  margin-top:16px;
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  opacity:.6;
 }
