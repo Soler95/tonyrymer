@@ -7,253 +7,13 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --bg:#050505;
-  --text:#f2efe9;
-  --muted:rgba(242,239,233,.6);
-  --line:rgba(255,255,255,.12);
-}
-
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:"Josefin Sans",sans-serif;
-  overflow-x:hidden;
-}
-
-/* HEADER */
-header{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  padding:22px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:1000;
-}
-
-.logo{
-  font-family:"Cormorant Garamond";
-  letter-spacing:4px;
-  font-size:18px;
-}
-
-nav{
-  display:flex;
-  gap:30px;
-}
-
-nav a{
-  text-decoration:none;
-  color:var(--text);
-  font-size:11px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  opacity:.7;
-}
-
-nav a:hover{opacity:1}
-
-.menu-btn{
-  display:none;
-  font-size:26px;
-  cursor:pointer;
-}
-
-/* MOBILE MENU */
-@media(max-width:768px){
-  .menu-btn{display:block}
-
-  nav{
-    position:fixed;
-    top:0;
-    right:-100%;
-    width:75%;
-    height:100vh;
-    background:#0a0a0a;
-    flex-direction:column;
-    padding:90px 30px;
-    gap:25px;
-    transition:.4s ease;
-    z-index:9999;
-  }
-
-  nav.active{right:0}
-}
-
-/* HERO FULL SCREEN */
-.hero{
-  height:100vh;
-  width:100%;
-  position:relative;
-  display:flex;
-  align-items:flex-end;
-  justify-content:flex-end;
-  padding:60px;
-  overflow:hidden;
-
-  background:
-    linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.2)),
-    url("DSC_9597ed9.jpg") center/cover no-repeat;
-}
-
-/* DARK CINEMATIC LAYER */
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at bottom right, transparent 40%, rgba(0,0,0,.75));
-}
-
-/* TITLE BLOCK */
-.hero-content{
-  position:relative;
-  text-align:right;
-  z-index:2;
-  max-width:600px;
-}
-
-.hero h1{
-  font-family:"Cormorant Garamond";
-  font-size:72px;
-  font-weight:300;
-  line-height:1;
-}
-
-.hero p{
-  margin-top:10px;
-  color:var(--muted);
-  letter-spacing:2px;
-  text-transform:uppercase;
-  font-size:11px;
-}
-
-/* MOBILE: CENTER TITLE */
-@media(max-width:768px){
-  .hero{
-    justify-content:center;
-    align-items:flex-end;
-    padding:40px 20px;
-  }
-
-  .hero-content{
-    text-align:center;
-  }
-
-  .hero h1{
-    font-size:44px;
-  }
-}
-
-/* SECTIONS */
-section{
-  max-width:1000px;
-  margin:auto;
-  padding:90px 20px;
-}
-
-h2{
-  font-family:"Cormorant Garamond";
-  font-size:36px;
-  margin-bottom:25px;
-}
-
-/* QUOTE */
-.quote{
-  font-size:20px;
-  font-style:italic;
-  color:var(--muted);
-  text-align:center;
-  max-width:800px;
-  margin:auto;
-}
-
-/* BIO */
-.bio{
-  color:var(--muted);
-  line-height:1.9;
-}
-
-.btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 22px;
-  border:1px solid var(--text);
-  color:var(--text);
-  text-decoration:none;
-  font-size:11px;
-  letter-spacing:3px;
-}
-
-.btn:hover{
-  background:var(--text);
-  color:#000;
-}
-
-/* VIDEO */
-.video{
-  position:relative;
-  padding-top:56.25%;
-}
-
-.video iframe{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-/* EVENTS */
-.event{
-  display:flex;
-  justify-content:space-between;
-  padding:18px 0;
-  border-bottom:1px solid var(--line);
-}
-
-/* CONTACT */
-.contact{
-  display:grid;
-  gap:12px;
-}
-
-input,textarea{
-  width:100%;
-  padding:12px;
-  background:transparent;
-  border:1px solid var(--line);
-  color:var(--text);
-}
-
-button{
-  padding:12px;
-  border:1px solid var(--text);
-  background:none;
-  color:var(--text);
-  cursor:pointer;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:50px 20px;
-  border-top:1px solid var(--line);
-  color:var(--muted);
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
+<!-- ───────────────── HEADER ───────────────── -->
+<header id="header">
   <div class="logo">TONY RYMER</div>
 
   <div class="menu-btn" id="menuBtn">☰</div>
@@ -267,53 +27,71 @@ footer{
   </nav>
 </header>
 
-<!-- HERO -->
+<!-- ───────────────── HERO ───────────────── -->
 <section class="hero" id="home">
-  <div class="hero-content">
+  <div>
     <h1>Tony Rymer</h1>
-    <p>Cellist · International Performer</p>
+    <p>Cellist · Performer · International Soloist</p>
   </div>
 </section>
 
-<!-- QUOTE -->
+<!-- ───────────────── QUOTE ───────────────── -->
 <section>
   <div class="quote">
-    “A rare combination of precision, warmth and emotional depth in modern cello performance.”
+    “A deeply expressive voice in the contemporary cello world, combining precision and emotional intensity.”
   </div>
 </section>
 
-<!-- BIO -->
+<!-- ───────────────── BIO ───────────────── -->
 <section id="bio">
   <h2>Biography</h2>
+
   <p class="bio">
-    Tony Rymer is an internationally performing cellist known for his expressive tone and refined musical interpretation.
+    Tony Rymer is an internationally performing cellist known for his expressive tone, artistic clarity and refined musical interpretation.
+    He performs across Europe and the United States as a soloist and chamber musician, collaborating with leading orchestras and ensembles.
   </p>
 
   <a class="btn" href="bio.html">Read more</a>
 </section>
 
-<!-- VIDEO -->
+<!-- ───────────────── MEDIA ───────────────── -->
 <section id="media">
-  <h2>Video</h2>
+  <h2>Featured Performance</h2>
 
   <div class="video">
-    <iframe src="https://www.youtube.com/embed/grtOob1WED0" allowfullscreen></iframe>
+    <iframe
+      src="https://www.youtube.com/embed/grtOob1WED0"
+      allowfullscreen>
+    </iframe>
   </div>
 </section>
 
-<!-- CALENDAR -->
+<!-- ───────────────── CALENDAR ───────────────── -->
 <section id="calendar">
-  <h2>Upcoming concerts</h2>
+  <h2>Upcoming Concerts</h2>
 
-  <div class="event"><strong>Berlin</strong><span>12 March 2026</span></div>
-  <div class="event"><strong>London</strong><span>18 April 2026</span></div>
+  <div class="event">
+    <div>
+      <strong>Berlin Philharmonie</strong><br>
+      <span>12 March 2026</span>
+    </div>
+    <a class="btn" href="#">Tickets</a>
+  </div>
 
-  <div style="text-align:center;margin-top:25px;">
-    <a class="btn" href="calendar.html">More events</a>
+  <div class="event">
+    <div>
+      <strong>Royal Albert Hall — London</strong><br>
+      <span>18 April 2026</span>
+    </div>
+    <a class="btn" href="#">Tickets</a>
+  </div>
+
+  <div style="text-align:center; margin-top:30px;">
+    <a class="btn" href="calendar.html">View all concerts</a>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ───────────────── CONTACT ───────────────── -->
 <section id="contact">
   <h2>Contact</h2>
 
@@ -321,35 +99,55 @@ footer{
     <input placeholder="Name">
     <input placeholder="Email">
     <textarea placeholder="Message"></textarea>
-    <button>Send</button>
+    <button>Send message</button>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ───────────────── FOOTER (IMPROVED) ───────────────── -->
 <footer>
-  © 2026 Tony Rymer
+  <div class="footer-container">
+
+    <div class="footer-left">
+      <div class="footer-title">TONY RYMER</div>
+      <p>Cellist · Performer · International Artist</p>
+    </div>
+
+    <div class="footer-center">
+      <a href="#home">Home</a>
+      <a href="#bio">Bio</a>
+      <a href="#media">Media</a>
+      <a href="#calendar">Calendar</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="footer-right">
+      <p>© 2026 All rights reserved</p>
+      <p>Management & Booking</p>
+    </div>
+
+  </div>
 </footer>
 
-<!-- MENU JS -->
+<!-- ───────────────── MOBILE MENU SCRIPT ───────────────── -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const nav = document.getElementById("nav");
-  const btn = document.getElementById("menuBtn");
+const nav = document.getElementById('nav');
+const btn = document.getElementById('menuBtn');
+const links = document.querySelectorAll('#nav a');
 
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    nav.classList.toggle("active");
-  });
+btn.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
 
-  document.addEventListener("click", (e) => {
-    if (!nav.contains(e.target) && !btn.contains(e.target)) {
-      nav.classList.remove("active");
-    }
+links.forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('active');
   });
+});
 
-  document.querySelectorAll("#nav a").forEach(a=>{
-    a.addEventListener("click", ()=> nav.classList.remove("active"));
-  });
+document.addEventListener('click', (e) => {
+  if (!nav.contains(e.target) && !btn.contains(e.target)) {
+    nav.classList.remove('active');
+  }
 });
 </script>
 
