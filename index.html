@@ -2,18 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Tony Rymer — Cellist</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <!-- HEADER -->
-<header>
+<header id="header">
   <div class="logo">TONY RYMER</div>
 
   <div class="menu-btn" id="menuBtn">☰</div>
@@ -27,58 +26,54 @@
   </nav>
 </header>
 
-
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-inner">
+  <div class="hero-content">
+    <div class="hero-sub">International Cellist</div>
     <h1>Tony Rymer</h1>
-    <p>Cellist · Performer · Soloist</p>
+    <p>Soloist · Chamber Music · International Performer</p>
   </div>
 </section>
-
 
 <!-- QUOTE -->
-<section>
-  <div class="quote">
-    “A rare voice in contemporary cello performance, combining emotional depth with absolute technical clarity.”
-  </div>
+<section class="quote-section">
+  <p class="quote">
+    “A cellist of rare emotional intelligence and striking sonic depth, redefining contemporary classical performance.”
+    <span>— International Music Review</span>
+  </p>
 </section>
 
-
 <!-- BIO -->
-<section id="bio">
+<section id="bio" class="section">
   <h2>Biography</h2>
 
   <p class="bio">
     Tony Rymer is an internationally performing cellist known for his expressive tone,
-    refined musical interpretation and strong stage presence across Europe and the United States.
+    refined musical interpretation and dynamic stage presence across Europe and the United States.
   </p>
 
   <a class="btn" href="bio.html">Read more</a>
 </section>
 
-
 <!-- MEDIA -->
-<section id="media">
+<section id="media" class="section">
   <h2>Featured Performance</h2>
 
   <div class="video">
     <iframe
       src="https://www.youtube.com/embed/grtOob1WED0"
-      title="Tony Rymer Performance"
       allowfullscreen>
     </iframe>
   </div>
 </section>
 
-
 <!-- CALENDAR -->
-<section id="calendar">
+<section id="calendar" class="section">
   <h2>Upcoming Concerts</h2>
 
   <div class="event">
     <div>
-      <strong>Berlin Philharmonie</strong><br>
+      <strong>Berlin Philharmonie</strong>
       <span>12 March 2026</span>
     </div>
     <a class="ticket" href="#">Tickets</a>
@@ -86,54 +81,51 @@
 
   <div class="event">
     <div>
-      <strong>Royal Albert Hall — London</strong><br>
+      <strong>Royal Albert Hall</strong>
       <span>18 April 2026</span>
     </div>
     <a class="ticket" href="#">Tickets</a>
   </div>
 
-  <div style="text-align:center; margin-top:30px;">
-    <a class="btn" href="calendar.html">View all concerts</a>
+  <div class="more">
+    <a class="btn" href="calendar.html">View full calendar</a>
   </div>
 </section>
 
-
 <!-- CONTACT -->
-<section id="contact">
+<section id="contact" class="section">
   <h2>Contact</h2>
 
-  <div class="contact">
+  <form class="contact">
     <input type="text" placeholder="Name">
     <input type="email" placeholder="Email">
     <textarea placeholder="Message"></textarea>
-    <button>Send</button>
-  </div>
+    <button type="button">Send</button>
+  </form>
 </section>
-
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Tony Rymer — Cellist. All rights reserved.</p>
+  <div>© 2026 Tony Rymer</div>
+  <div class="footer-mid">Cellist</div>
+  <div class="footer-right">
+    <a href="#">Instagram</a>
+    <a href="#">YouTube</a>
+  </div>
 </footer>
 
-
-<!-- MOBILE MENU SCRIPT -->
 <script>
 const nav = document.getElementById('nav');
 const btn = document.getElementById('menuBtn');
-const links = document.querySelectorAll('#nav a');
 
 btn.addEventListener('click', () => {
   nav.classList.toggle('active');
 });
 
-links.forEach(link => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('active');
-  });
+document.querySelectorAll('#nav a').forEach(a => {
+  a.addEventListener('click', () => nav.classList.remove('active'));
 });
 
-// close when clicking outside
 document.addEventListener('click', (e) => {
   if (!nav.contains(e.target) && !btn.contains(e.target)) {
     nav.classList.remove('active');
