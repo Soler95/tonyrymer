@@ -7,6 +7,56 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<!-- COOKIE STYLE (puedes moverlo a CSS luego) -->
+<style>
+.cookie-banner{
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  right:20px;
+  display:none;
+  z-index:9999;
+}
+
+.cookie-box{
+  max-width:900px;
+  margin:auto;
+  background:rgba(10,10,10,.92);
+  border:1px solid rgba(255,255,255,.12);
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  backdrop-filter: blur(10px);
+  color:#f5f1ea;
+  font-family:inherit;
+}
+
+.cookie-actions{
+  display:flex;
+  gap:10px;
+}
+
+.cookie-actions button{
+  padding:10px 16px;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  cursor:pointer;
+  border:1px solid #fff;
+  background:transparent;
+  color:#fff;
+  transition:.3s;
+}
+
+.cookie-actions button:hover{
+  background:#fff;
+  color:#000;
+}
+</style>
+
 </head>
 
 <body>
@@ -124,6 +174,19 @@
   </div>
 </footer>
 
+<!-- 🍪 COOKIE BANNER -->
+<div id="cookie-banner" class="cookie-banner">
+  <div class="cookie-box">
+    <p>We use cookies to improve your experience.</p>
+
+    <div class="cookie-actions">
+      <button id="accept-cookies">Accept</button>
+      <button id="reject-cookies">Reject</button>
+    </div>
+  </div>
+</div>
+
+<!-- JS -->
 <script>
 const nav = document.getElementById('nav');
 const btn = document.getElementById('menuBtn');
@@ -140,6 +203,25 @@ document.addEventListener('click', (e) => {
   if (!nav.contains(e.target) && !btn.contains(e.target)) {
     nav.classList.remove('active');
   }
+});
+
+/* 🍪 COOKIE LOGIC */
+const banner = document.getElementById("cookie-banner");
+const accept = document.getElementById("accept-cookies");
+const reject = document.getElementById("reject-cookies");
+
+if(!localStorage.getItem("cookiesChoice")){
+  banner.style.display = "block";
+}
+
+accept.addEventListener("click", () => {
+  localStorage.setItem("cookiesChoice", "accepted");
+  banner.style.display = "none";
+});
+
+reject.addEventListener("click", () => {
+  localStorage.setItem("cookiesChoice", "rejected");
+  banner.style.display = "none";
 });
 </script>
 
