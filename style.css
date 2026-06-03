@@ -133,15 +133,21 @@ nav a:hover{
 
 /* MOBILE HERO CENTER BOTTOM */
 @media(max-width:768px){
+
   .hero{
-    justify-content:flex-end;
-    align-items:center;
+    justify-content:flex-end;   /* sigue abajo */
+    align-items:center;         /* centrado horizontal */
+    padding:0 20px 70px;        /* controla la altura REAL */
     text-align:center;
-    padding:60px 20px;
   }
 
   .hero-content{
     text-align:center;
+    max-width:90%;
+  }
+
+  .hero h1{
+    line-height:1.05;
   }
 }
 
