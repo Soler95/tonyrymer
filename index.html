@@ -5,76 +5,84 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tony Rymer — Cellist</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* =======================
+/* =========================
    RESET
-======================= */
+========================= */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
 
-body{
-  font-family:"Cormorant Garamond", serif;
-  background:#0a0a0a;
-  color:#f5f5f5;
-  overflow-x:hidden;
-  line-height:1.6;
+html{
+  scroll-behavior:smooth;
 }
 
-/* =======================
+body{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  background:#0b0b0b;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* =========================
    NAV
-======================= */
-header{
+========================= */
+nav{
   position:fixed;
   top:0;
-  left:0;
   width:100%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:25px 50px;
+  padding:25px 40px;
   z-index:1000;
-  mix-blend-mode:difference;
+  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,0.4);
 }
 
 .logo{
-  font-size:14px;
+  font-size:18px;
   letter-spacing:4px;
-  text-transform:uppercase;
 }
 
-nav a{
-  margin-left:25px;
+.menu{
+  display:flex;
+  gap:25px;
+}
+
+.menu a{
+  color:#fff;
   text-decoration:none;
-  color:white;
-  font-size:12px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  opacity:.8;
+  font-size:13px;
+  letter-spacing:2px;
+  opacity:0.8;
+  transition:0.3s;
 }
 
-nav a:hover{
+.menu a:hover{
   opacity:1;
 }
 
-/* =======================
+/* =========================
    HERO
-======================= */
+========================= */
 .hero{
   height:100vh;
   display:flex;
-  align-items:center;
+  flex-direction:column;
   justify-content:center;
+  align-items:center;
   text-align:center;
-  padding:40px;
+
+  padding:20px;
 
   background:
-    linear-gradient(to bottom, rgba(0,0,0,.3), rgba(0,0,0,.85)),
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.85)),
     url("https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=2400&q=80");
 
   background-size:cover;
@@ -82,36 +90,38 @@ nav a:hover{
 }
 
 .hero h1{
-  font-size:82px;
-  font-weight:400;
+  font-size:80px;
   letter-spacing:6px;
+  font-weight:400;
 }
 
 .hero h2{
-  font-size:14px;
+  font-size:16px;
   letter-spacing:5px;
   margin-top:10px;
+  opacity:0.8;
   text-transform:uppercase;
-  opacity:.8;
 }
 
 .hero p{
-  max-width:650px;
-  margin:25px auto 0;
-  opacity:.85;
-  font-size:18px;
+  max-width:700px;
+  margin-top:25px;
+  line-height:1.7;
+  opacity:0.85;
 }
 
+/* =========================
+   BUTTON
+========================= */
 .btn{
-  display:inline-block;
   margin-top:30px;
-  padding:12px 26px;
+  padding:12px 25px;
   border:1px solid white;
-  text-decoration:none;
   color:white;
-  letter-spacing:3px;
-  font-size:12px;
-  transition:.3s;
+  text-decoration:none;
+  letter-spacing:2px;
+  transition:0.3s;
+  display:inline-block;
 }
 
 .btn:hover{
@@ -119,50 +129,54 @@ nav a:hover{
   color:black;
 }
 
-/* =======================
+/* =========================
    SECTIONS
-======================= */
+========================= */
 section{
   max-width:1000px;
   margin:auto;
-  padding:120px 30px;
+  padding:100px 30px;
 }
 
 h3{
-  font-size:36px;
-  font-weight:400;
-  margin-bottom:30px;
+  font-size:34px;
+  margin-bottom:25px;
   letter-spacing:2px;
 }
 
-/* =======================
+/* =========================
+   BIO
+========================= */
+.bio{
+  font-size:18px;
+  line-height:1.9;
+  opacity:0.88;
+}
+
+/* =========================
    EVENTS
-======================= */
+========================= */
 .event{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px 0;
-  border-bottom:1px solid rgba(255,255,255,.1);
+  padding:22px;
+  border:1px solid rgba(255,255,255,0.12);
+  margin-bottom:15px;
+  transition:0.3s;
 }
 
-.event strong{
-  font-size:18px;
-}
-
-.event span{
-  opacity:.7;
-  font-size:14px;
+.event:hover{
+  border-color:rgba(255,255,255,0.4);
 }
 
 .ticket{
-  font-size:12px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  text-decoration:none;
   border:1px solid white;
-  padding:8px 14px;
+  padding:10px 16px;
   color:white;
+  text-decoration:none;
+  font-size:12px;
+  transition:0.3s;
 }
 
 .ticket:hover{
@@ -170,12 +184,11 @@ h3{
   color:black;
 }
 
-/* =======================
+/* =========================
    VIDEO
-======================= */
+========================= */
 .video{
   position:relative;
-  width:100%;
   padding-top:56.25%;
 }
 
@@ -187,48 +200,40 @@ h3{
   border:0;
 }
 
-/* =======================
-   BIO
-======================= */
-.bio{
-  font-size:18px;
-  opacity:.9;
-  max-width:850px;
-}
-
-/* =======================
+/* =========================
    FOOTER
-======================= */
+========================= */
 footer{
   text-align:center;
   padding:60px 20px;
-  border-top:1px solid rgba(255,255,255,.1);
-  font-size:12px;
-  letter-spacing:2px;
-  opacity:.7;
+  border-top:1px solid rgba(255,255,255,0.1);
+  opacity:0.7;
 }
 
-/* =======================
-   RESPONSIVE
-======================= */
+/* =========================
+   MOBILE
+========================= */
 @media(max-width:768px){
 
-  header{
+  nav{
     padding:20px;
+    flex-direction:column;
+    gap:10px;
   }
 
   .hero h1{
-    font-size:46px;
+    font-size:42px;
   }
 
-  section{
-    padding:80px 20px;
+  .menu{
+    flex-wrap:wrap;
+    justify-content:center;
   }
 
   .event{
     flex-direction:column;
-    align-items:flex-start;
     gap:10px;
+    text-align:center;
   }
 }
 
@@ -237,59 +242,66 @@ footer{
 
 <body>
 
-<header>
+<!-- NAV -->
+<nav>
   <div class="logo">TONY RYMER</div>
-  <nav>
+
+  <div class="menu">
     <a href="#bio">Bio</a>
     <a href="#events">Events</a>
     <a href="#media">Media</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <div>
-    <h1>Tony Rymer</h1>
-    <h2>Cellist</h2>
-    <p>
-      International cellist performing as soloist, chamber musician and orchestral artist across Europe and the United States.
-    </p>
-    <a class="btn" href="#events">Upcoming concerts</a>
+    <a href="#contact">Contact</a>
   </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Tony Rymer</h1>
+  <h2>Cellist</h2>
+
+  <p>
+    International cellist performing as soloist and chamber musician across Europe and the United States,
+    known for a rich expressive tone and refined musical clarity.
+  </p>
+
+  <a class="btn" href="#events">Upcoming concerts</a>
 </section>
 
+<!-- EVENTS -->
 <section id="events">
   <h3>Upcoming Concerts</h3>
 
   <div class="event">
     <div>
       <strong>Berlin Philharmonie</strong><br>
-      <span>12 March 2026</span>
+      12 March 2026
     </div>
     <a class="ticket" href="#">Tickets</a>
   </div>
 
   <div class="event">
     <div>
-      <strong>Royal Albert Hall</strong><br>
-      <span>18 April 2026</span>
+      <strong>Royal Albert Hall — London</strong><br>
+      18 April 2026
     </div>
     <a class="ticket" href="#">Tickets</a>
   </div>
 
   <div class="event">
     <div>
-      <strong>Concertgebouw Amsterdam</strong><br>
-      <span>5 May 2026</span>
+      <strong>Concertgebouw — Amsterdam</strong><br>
+      05 May 2026
     </div>
     <a class="ticket" href="#">Tickets</a>
   </div>
 </section>
 
+<!-- MEDIA -->
 <section id="media">
   <h3>Featured Performance</h3>
 
   <div class="video">
-    <iframe 
+    <iframe
       src="https://www.youtube.com/embed/grtOob1WED0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen>
@@ -297,14 +309,27 @@ footer{
   </div>
 </section>
 
+<!-- BIO -->
 <section id="bio">
   <h3>Biography</h3>
 
   <p class="bio">
-    Tony Rymer is an internationally recognized cellist known for his expressive tone, refined musicality, and versatility across solo, chamber, and orchestral performance. He has performed in major concert halls throughout Europe and the United States and continues to collaborate with leading musicians and orchestras worldwide.
+    Tony Rymer is an internationally recognized cellist with a career spanning major concert halls in Europe and North America.
+    His artistry is defined by emotional depth, structural intelligence, and a distinctive tonal warmth.
   </p>
 </section>
 
+<!-- CONTACT -->
+<section id="contact">
+  <h3>Contact</h3>
+
+  <p class="bio">
+    Management: management@tonyrymer.com<br>
+    Booking: booking@tonyrymer.com
+  </p>
+</section>
+
+<!-- FOOTER -->
 <footer>
   © 2026 Tony Rymer — Cellist
 </footer>
