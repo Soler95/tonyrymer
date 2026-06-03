@@ -12,7 +12,7 @@
 <body>
 
 <!-- HEADER -->
-<header id="header">
+<header class="header">
   <div class="logo">TONY RYMER</div>
 
   <div class="menu-btn" id="menuBtn">☰</div>
@@ -29,35 +29,32 @@
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-content">
-    <div class="hero-sub">International Cellist</div>
+    <p class="eyebrow">International Cellist</p>
     <h1>Tony Rymer</h1>
-    <p>Soloist · Chamber Music · International Performer</p>
+    <p class="sub">Soloist · Chamber Music · International Performer</p>
   </div>
 
-  <!-- SCROLL ANIMATION -->
-  <div class="scroll-cue">
-    <div class="scroll-line"></div>
+  <div class="scroll">
+    <div class="line"></div>
     <span>scroll</span>
   </div>
 </section>
 
 <!-- QUOTE -->
-<section class="quote-section">
+<section class="section center">
   <p class="quote">
-    “A cellist of rare emotional intelligence and striking sonic depth, redefining contemporary classical performance.”
-    <span>— International Music Review</span>
+    “A cellist of rare emotional intelligence and striking sonic depth.”
+    <span>International Music Review</span>
   </p>
 </section>
 
 <!-- BIO -->
 <section id="bio" class="section">
   <h2>Biography</h2>
-
-  <p class="bio">
-    Tony Rymer is an internationally performing cellist known for his expressive tone,
-    refined musical interpretation and dynamic stage presence across Europe and the United States.
+  <p class="text">
+    Tony Rymer is an internationally performing cellist known for expressive tone,
+    refined interpretation and stage presence across Europe and the United States.
   </p>
-
   <a class="btn" href="bio.html">Read more</a>
 </section>
 
@@ -66,10 +63,7 @@
   <h2>Featured Performance</h2>
 
   <div class="video">
-    <iframe
-      src="https://www.youtube.com/embed/grtOob1WED0"
-      allowfullscreen>
-    </iframe>
+    <iframe src="https://www.youtube.com/embed/grtOob1WED0" allowfullscreen></iframe>
   </div>
 </section>
 
@@ -79,22 +73,18 @@
 
   <div class="event">
     <div>
-      <strong>Berlin Philharmonie</strong>
-      <span>12 March 2026</span>
+      <h3>Berlin Philharmonie</h3>
+      <p>12 March 2026</p>
     </div>
     <a class="ticket" href="#">Tickets</a>
   </div>
 
   <div class="event">
     <div>
-      <strong>Royal Albert Hall</strong>
-      <span>18 April 2026</span>
+      <h3>Royal Albert Hall</h3>
+      <p>18 April 2026</p>
     </div>
     <a class="ticket" href="#">Tickets</a>
-  </div>
-
-  <div class="more">
-    <a class="btn" href="calendar.html">View full calendar</a>
   </div>
 </section>
 
@@ -102,53 +92,34 @@
 <section id="contact" class="section">
   <h2>Contact</h2>
 
-  <form class="contact">
+  <form class="form">
     <input type="text" placeholder="Name">
     <input type="email" placeholder="Email">
     <textarea placeholder="Message"></textarea>
-    <button type="button" class="btn">Send</button>
+    <button class="btn" type="button">Send</button>
   </form>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-left">
-    <div class="footer-name">TONY RYMER</div>
-    <div class="footer-role">Cellist · Performer · Soloist</div>
+  <div>
+    <div class="name">TONY RYMER</div>
+    <div class="role">Cellist · Performer</div>
   </div>
 
-  <div class="footer-center">
-    <div class="footer-quote">
-      “Music is not played, it is revealed.”
-    </div>
+  <div class="center">
+    “Music is not played, it is revealed.”
   </div>
 
-  <div class="footer-right">
+  <div class="links">
     <a href="#">Instagram</a>
     <a href="#">YouTube</a>
-    <a href="#">Contact</a>
   </div>
 </footer>
 
-<!-- 🍪 COOKIE BANNER -->
-<div id="cookie-banner" class="cookie-banner">
-  <div class="cookie-box">
-    <p class="cookie-text">
-      We use cookies to improve your experience and analyze site traffic.
-    </p>
-
-    <div class="cookie-actions">
-      <button id="accept-cookies">Accept</button>
-      <button id="reject-cookies">Reject</button>
-    </div>
-  </div>
-</div>
-
-<!-- JS -->
 <script>
 const nav = document.getElementById('nav');
 const btn = document.getElementById('menuBtn');
-const banner = document.getElementById("cookie-banner");
 
 btn.addEventListener('click', () => {
   nav.classList.toggle('active');
@@ -156,27 +127,6 @@ btn.addEventListener('click', () => {
 
 document.querySelectorAll('#nav a').forEach(a => {
   a.addEventListener('click', () => nav.classList.remove('active'));
-});
-
-document.addEventListener('click', (e) => {
-  if (!nav.contains(e.target) && !btn.contains(e.target)) {
-    nav.classList.remove('active');
-  }
-});
-
-/* COOKIE LOGIC */
-if (!localStorage.getItem("cookiesChoice")) {
-  banner.style.display = "block";
-}
-
-document.getElementById("accept-cookies").addEventListener("click", () => {
-  localStorage.setItem("cookiesChoice", "accepted");
-  banner.style.display = "none";
-});
-
-document.getElementById("reject-cookies").addEventListener("click", () => {
-  localStorage.setItem("cookiesChoice", "rejected");
-  banner.style.display = "none";
 });
 </script>
 
