@@ -62,7 +62,7 @@ body.nav-open { overflow: hidden; }
   top: 0; left: 0; right: 0;
   z-index: 500;
   height: var(--header-h);
-   padding-left: 0;
+padding-left: 0;
   transition: background 0.5s var(--ease), border-bottom 0.5s var(--ease);
 }
 
@@ -76,7 +76,7 @@ body.nav-open { overflow: hidden; }
 .header-inner {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 20px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -91,7 +91,7 @@ body.nav-open { overflow: hidden; }
   color: var(--cream);
   text-decoration: none;
   transition: color 0.3s;
- margin-left: -10; 
+ margin-left: -10px; 
 }
 .logo:hover { color: var(--gold-light); }
 
