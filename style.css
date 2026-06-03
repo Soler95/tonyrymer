@@ -1,5 +1,5 @@
 /* ─────────────────────────────
-   ENHANCED PREMIUM MOTION CSS
+   ENHANCED PREMIUM MOTION CSS (CLEAN VERSION)
 ───────────────────────────── */
 
 :root {
@@ -13,37 +13,49 @@
   --ease2: cubic-bezier(.65,0,.35,1);
 }
 
-/* ── GLOBAL IMPROVEMENTS ── */
+/* ── GLOBAL ── */
 html {
-  scroll-behavior:smooth;
-  scroll-padding-top:90px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
+  margin: 0;
   background: radial-gradient(circle at top, #0a0a0a 0%, var(--bg) 60%);
-  color:var(--text);
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* subtle noise overlay movement */
+/* overlay cinematic */
 body::before {
-  content:"";
-  position:fixed;
-  inset:0;
-  background:radial-gradient(circle, transparent 60%, rgba(0,0,0,.4));
-  pointer-events:none;
-  z-index:0;
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, transparent 60%, rgba(0,0,0,.4));
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* ── LINKS ── */
 a {
-  transition:color .35s var(--ease), opacity .35s var(--ease);
+  color: inherit;
+  text-decoration: none;
+  transition: color .35s var(--ease), opacity .35s var(--ease);
 }
 
-/* ── HEADER (MORE LUXURY FEEL) ── */
+/* ── HEADER ── */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 22px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2000;
   backdrop-filter: blur(14px) saturate(140%);
   background: rgba(0,0,0,.25);
   transition: all .6s var(--ease);
@@ -54,8 +66,10 @@ header.stuck {
   box-shadow: 0 10px 40px rgba(0,0,0,.5);
 }
 
-/* logo micro glow */
 .logo {
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 4px;
+  font-size: 18px;
   transition: transform .4s var(--ease);
 }
 
@@ -64,227 +78,231 @@ header.stuck {
   text-shadow: 0 0 20px rgba(200,169,110,.25);
 }
 
-/* ── MENU ENHANCED ── */
-.menu a {
-  position:relative;
-  transition:transform .35s var(--ease), opacity .35s;
+/* ── MENU DESKTOP ── */
+nav {
+  display: flex;
+  gap: 30px;
 }
 
-.menu a:hover {
+nav a {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: .7;
+  position: relative;
+  transition: transform .35s var(--ease), opacity .35s;
+}
+
+nav a:hover {
+  opacity: 1;
   transform: translateY(-2px);
 }
 
-/* animated underline grows from center */
-.menu a::after {
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
   transform: scaleX(0);
-  transform-origin:center;
-  transition:transform .45s var(--ease);
+  transform-origin: center;
+  transition: transform .45s var(--ease);
 }
 
-.menu a:hover::after {
+nav a:hover::after {
   transform: scaleX(1);
 }
 
-/* ── HERO DEPTH IMPROVEMENT ── */
-.hero-bg {
-  filter: contrast(1.05) saturate(1.1);
-  transform: scale(1.08);
-  transition: transform 12s var(--ease), filter 2s var(--ease);
+/* ── MENU BUTTON ── */
+.menu-btn {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 3000;
 }
 
-.hero-bg.in {
-  transform: scale(1);
+/* ── MOBILE MENU FIX (IMPORTANT) ── */
+@media (max-width: 768px) {
+
+  .menu-btn {
+    display: block;
+    color: var(--text);
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 75%;
+    background: #0a0a0a;
+    flex-direction: column;
+    padding: 100px 30px;
+    gap: 25px;
+    transition: right .45s var(--ease);
+    z-index: 2500;
+  }
+
+  nav.active {
+    right: 0;
+  }
+
+  nav a {
+    font-size: 16px;
+  }
 }
 
-/* soft floating text effect */
+/* ── HERO (FULL SCREEN CLEAN FIX) ── */
+.hero {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.85)),
+    url("DSC_9597ed9.jpg") center/cover no-repeat;
+  transform: scale(1.05);
+  filter: contrast(1.1) saturate(1.05);
+}
+
+/* HERO TEXT */
 .hero h1 {
-  text-shadow: 0 20px 60px rgba(0,0,0,.45);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(48px, 6vw, 90px);
+  font-weight: 300;
+  position: relative;
+  z-index: 2;
 }
 
-/* tag animation more fluid */
-.hero-tag {
-  letter-spacing:6px;
-  opacity:0;
-  transform:translateY(18px) scale(.98);
+.hero p {
+  margin-top: 15px;
+  color: rgba(255,255,255,.7);
+  position: relative;
+  z-index: 2;
 }
 
-.hero-tag.in {
-  opacity:1;
-  transform:translateY(0) scale(1);
+/* ── SECTIONS ── */
+section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 90px 20px;
+  position: relative;
+  z-index: 2;
 }
 
-/* ── BUTTONS (MORE INTERACTIVE) ── */
+/* ── QUOTE ── */
+.quote {
+  text-align: center;
+  font-style: italic;
+  font-size: 20px;
+  color: rgba(255,255,255,.6);
+  max-width: 800px;
+  margin: auto;
+}
+
+/* ── BIO ── */
+.bio {
+  color: rgba(255,255,255,.7);
+  line-height: 1.9;
+}
+
+/* ── BUTTON ── */
 .btn {
-  transform: translateZ(0);
-  transition: transform .35s var(--ease), letter-spacing .35s var(--ease);
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 22px;
+  border: 1px solid var(--text);
+  font-size: 11px;
+  letter-spacing: 3px;
+  transition: .3s;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  letter-spacing:3.2px;
+  background: var(--text);
+  color: #000;
 }
 
-/* glowing accent fill */
-.btn-solid .fill {
-  background: radial-gradient(circle at center, #1a1a1a, #000);
-}
-
-/* ghost hover glow */
-.btn-ghost:hover {
-  box-shadow: 0 0 0 1px rgba(200,169,110,.25);
-}
-
-/* arrow bounce */
-.btn:hover .btn-arrow {
-  transform: translateX(6px) rotate(-6deg);
-}
-
-/* ── SECTIONS REVEAL (SMOOTHER) ── */
-.r {
-  opacity:0;
-  transform: translateY(40px) scale(.98);
-  transition: all .9s var(--ease);
-  will-change: transform, opacity;
-}
-
-.r.in {
-  opacity:1;
-  transform: translateY(0) scale(1);
-}
-
-/* stagger improvement */
-.r1 { transition-delay:.05s; }
-.r2 { transition-delay:.12s; }
-.r3 { transition-delay:.18s; }
-.r4 { transition-delay:.24s; }
-
-/* ── EVENTS (MORE PREMIUM INTERACTION) ── */
-.event {
-  transition: all .5s var(--ease);
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
-
-.event:hover {
-  background: rgba(255,255,255,.02);
-  padding-left:10px;
-}
-
-/* date glow */
-.event-date {
-  transition: all .4s var(--ease);
-}
-
-.event:hover .event-date {
-  color: var(--accent);
-  transform: scale(1.05);
-}
-
-/* ticket button glow */
-.ticket {
-  transition: all .4s var(--ease);
-}
-
-.ticket:hover {
-  box-shadow: 0 0 25px rgba(200,169,110,.15);
-}
-
-/* ── VIDEO (MORE CINEMATIC) ── */
+/* ── VIDEO ── */
 .video {
-  border-radius: 2px;
-  overflow:hidden;
-  box-shadow: 0 30px 80px rgba(0,0,0,.5);
-  transform: translateZ(0);
+  position: relative;
+  padding-top: 56.25%;
+  overflow: hidden;
 }
 
-/* slight zoom hover */
-.video:hover iframe {
-  transform: scale(1.02);
-  transition: transform 1.2s var(--ease);
+.video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
-/* ── CONTACT INPUTS ── */
-.form-row input,
-.form-row textarea {
-  transition: all .4s var(--ease);
+/* ── EVENTS ── */
+.event {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,.1);
 }
 
-.form-row input:focus,
-.form-row textarea:focus {
-  transform: translateY(-2px);
+/* ── CONTACT ── */
+.contact {
+  display: grid;
+  gap: 15px;
 }
 
-/* accent underline pulse */
-.form-bar {
-  transition: width .6s var(--ease);
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.12);
+  color: var(--text);
 }
 
-/* ── FOOTER (MORE ELEGANT) ── */
+button {
+  padding: 12px;
+  border: 1px solid var(--text);
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* ── FOOTER ── */
 footer {
-  opacity:1;
-  background: linear-gradient(to top, rgba(0,0,0,.6), transparent);
+  text-align: center;
+  padding: 50px 20px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  color: rgba(255,255,255,.5);
 }
 
-.footer-logo {
-  transition: all .4s var(--ease);
-}
-
-.footer-logo:hover {
-  letter-spacing:7px;
-  color: var(--accent);
-}
-
-/* ── MOBILE IMPROVEMENTS ── */
-@media (max-width:768px) {
-
-  .event:hover {
-    padding-left:0;
-  }
-
-  .btn:hover {
-    transform:none;
-  }
+/* ── SMALL MOBILE FIXES ── */
+@media (max-width: 768px) {
 
   header {
-    backdrop-filter: blur(18px);
-  }
-}
-nav{
-  display:flex;
-  gap:30px;
-}
-
-.menu-btn{
-  display:none;
-  font-size:22px;
-  cursor:pointer;
-  z-index:1100;
-}
-
-/* MOBILE MENU FIX */
-@media(max-width:768px){
-
-  .menu-btn{
-    display:block;
+    padding: 18px 22px;
   }
 
-  nav{
-    position:fixed;
-    top:0;
-    right:-100%;
-    height:100vh;
-    width:75%;
-    background:#0a0a0a;
-    flex-direction:column;
-    padding:90px 30px;
-    gap:25px;
-    transition:.4s ease;
+  .hero h1 {
+    font-size: 44px;
   }
 
-  nav.active{
-    right:0;
-  }
-
-  nav a{
-    font-size:14px;
+  .event {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 }
