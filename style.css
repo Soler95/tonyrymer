@@ -328,3 +328,62 @@ input,textarea{
     gap:10px;
   }
 }
+/* ─────────────────────────────
+   COOKIE BANNER
+───────────────────────────── */
+
+.cookie-banner{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(520px, 92%);
+  background:rgba(10,10,10,.92);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(12px);
+  padding:16px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  z-index:9999;
+  border-radius:10px;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.cookie-text{
+  font-size:12px;
+  color:rgba(255,255,255,.7);
+  line-height:1.4;
+}
+
+.cookie-actions{
+  display:flex;
+  gap:10px;
+}
+
+.cookie-actions button{
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  padding:10px 12px;
+  border:1px solid rgba(255,255,255,.25);
+  background:transparent;
+  color:var(--text);
+  cursor:pointer;
+  transition:.3s;
+}
+
+.cookie-actions button:hover{
+  background:var(--accent);
+  color:#000;
+  border-color:var(--accent);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .cookie-banner{
+    flex-direction:column;
+    text-align:center;
+  }
+}
