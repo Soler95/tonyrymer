@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tony Rymer — Cellist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <style>
+    body{
+      margin:0;
+      font-family:"Cormorant Garamond", Georgia, serif;
+      background:#000;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    /* HERO */
+    .hero{
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      position:relative;
+
+      background-image:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.85)),
+        url("https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=2400&q=80");
+      background-size:cover;
+      background-position:center;
+    }
+
+    h1{
+      font-size:70px;
+      letter-spacing:4px;
+      margin:0;
+    }
+
+    h2{
+      font-size:18px;
+      letter-spacing:6px;
+      margin-top:10px;
+      opacity:.8;
+      text-transform:uppercase;
+    }
+
+    p{
+      max-width:700px;
+      margin-top:20px;
+      opacity:.85;
+      line-height:1.6;
+    }
+
+    .btn{
+      margin-top:30px;
+      display:inline-block;
+      padding:12px 24px;
+      border:1px solid white;
+      color:white;
+      text-decoration:none;
+      letter-spacing:2px;
+      transition:.3s;
+    }
+
+    .btn:hover{
+      background:white;
+      color:black;
+    }
+
+    /* SECTIONS */
+    section{
+      padding:80px 40px;
+      max-width:1000px;
+      margin:auto;
+    }
+
+    h3{
+      font-size:32px;
+      margin-bottom:20px;
+    }
+
+    /* EVENTS */
+    .event{
+      display:flex;
+      justify-content:space-between;
+      padding:20px;
+      border:1px solid rgba(255,255,255,.15);
+      margin-bottom:15px;
+    }
+
+    .ticket{
+      border:1px solid white;
+      padding:8px 16px;
+      text-decoration:none;
+      color:white;
+      font-size:12px;
+    }
+
+    .ticket:hover{
+      background:white;
+      color:black;
+    }
+
+    /* VIDEO */
+    .video{
+      position:relative;
+      padding-top:56.25%;
+      margin-top:20px;
+    }
+
+    .video iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    /* FOOTER */
+    footer{
+      text-align:center;
+      padding:40px;
+      border-top:1px solid rgba(255,255,255,.1);
+      opacity:.8;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Tony Rymer</h1>
+  <h2>Cellist</h2>
+
+  <p>
+    International cellist performing as soloist, chamber musician and orchestral performer.
+    Known for expressive depth and refined sound.
+  </p>
+
+  <a class="btn" href="#events">Upcoming concerts</a>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <h3>Upcoming Concerts</h3>
+
+  <div class="event">
+    <div>
+      <strong>12 March 2026</strong><br>
+      Berlin Philharmonie
+    </div>
+    <a class="ticket" href="#">Tickets</a>
+  </div>
+
+  <div class="event">
+    <div>
+      <strong>18 April 2026</strong><br>
+      Royal Albert Hall, London
+    </div>
+    <a class="ticket" href="#">Tickets</a>
+  </div>
+
+  <div class="event">
+    <div>
+      <strong>5 May 2026</strong><br>
+      Concertgebouw Amsterdam
+    </div>
+    <a class="ticket" href="#">Tickets</a>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section>
+  <h3>Media</h3>
+
+  <div class="video">
+    <iframe 
+      src="https://www.youtube.com/embed/Y04K9-z7pxk"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<!-- BIO -->
+<section>
+  <h3>Biography</h3>
+
+  <p>
+    Tony Rymer is an internationally performing cellist with a career spanning solo,
+    chamber and orchestral repertoire. He has performed in major venues across Europe,
+    Asia and the Americas, collaborating with leading orchestras and musicians.
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <h3>Contact</h3>
+
+  <p>
+    Management: <a href="mailto:tonyrymer@gmail.com" style="color:white;">tonyrymer@gmail.com</a><br>
+    Booking: <a href="mailto:tonyrymer@gmail.com" style="color:white;">tonyrymer@gmail.com</a>
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Tony Rymer — Cellist
+</footer>
+
+</body>
+</html>
