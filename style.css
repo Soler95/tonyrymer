@@ -105,7 +105,6 @@ nav a:hover{
 
   display:flex;
 
-  /* DESKTOP DEFAULT */
   justify-content:flex-start;
   align-items:flex-end;
 
@@ -290,7 +289,7 @@ input,textarea{
 }
 
 /* ─────────────────────────────
-   🔥 MOBILE FIX REAL (IMPORTANTE)
+   MOBILE FIX
 ───────────────────────────── */
 @media(max-width:768px){
 
@@ -298,12 +297,10 @@ input,textarea{
     padding:18px 22px;
   }
 
-  /* ⭐ FIX CLAVE: NO CENTRAR VERTICAL */
   .hero{
-    display:flex;
-    justify-content:center;   /* horizontal center */
-    align-items:flex-end;     /* bottom */
-    padding:0 20px 70px;      /* bottom spacing real */
+    justify-content:center;
+    align-items:flex-end;
+    padding:0 20px 70px;
     text-align:center;
   }
 
@@ -328,62 +325,73 @@ input,textarea{
     gap:10px;
   }
 }
-/* ─────────────────────────────
-   COOKIE BANNER
-───────────────────────────── */
 
+/* ─────────────────────────────
+   🍪 COOKIE BANNER (FIX PREMIUM)
+───────────────────────────── */
 .cookie-banner{
   position:fixed;
-  bottom:20px;
+  bottom:24px;
   left:50%;
   transform:translateX(-50%);
-  width:min(520px, 92%);
+  width:min(480px, 92%);
   background:rgba(10,10,10,.92);
   border:1px solid rgba(255,255,255,.12);
-  backdrop-filter:blur(12px);
-  padding:16px 18px;
+  backdrop-filter:blur(14px);
+  padding:14px 16px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:14px;
+  justify-content:space-between;
+  gap:12px;
   z-index:9999;
-  border-radius:10px;
-  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  border-radius:12px;
+  box-shadow:0 20px 60px rgba(0,0,0,.55);
 }
 
+/* TEXT */
 .cookie-text{
-  font-size:12px;
-  color:rgba(255,255,255,.7);
+  font-size:11px;
+  color:rgba(255,255,255,.72);
   line-height:1.4;
+  flex:1;
 }
 
+/* BUTTONS */
 .cookie-actions{
   display:flex;
-  gap:10px;
+  gap:8px;
+  flex-shrink:0;
 }
 
 .cookie-actions button{
-  font-size:10px;
+  font-size:9px;
   letter-spacing:2px;
   text-transform:uppercase;
-  padding:10px 12px;
-  border:1px solid rgba(255,255,255,.25);
+  padding:9px 10px;
+  border:1px solid rgba(255,255,255,.22);
   background:transparent;
   color:var(--text);
   cursor:pointer;
-  transition:.3s;
+  transition:.3s var(--ease);
+  border-radius:6px;
 }
 
 .cookie-actions button:hover{
   background:var(--accent);
-  color:#000;
   border-color:var(--accent);
+  color:#000;
 }
 
-/* MOBILE */
+/* MOBILE COOKIE FIX */
 @media(max-width:768px){
   .cookie-banner{
     flex-direction:column;
     text-align:center;
+    padding:14px;
+  }
+
+  .cookie-actions{
+    width:100%;
+    justify-content:center;
   }
 }
