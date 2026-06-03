@@ -91,7 +91,7 @@ padding-left: 0;
   color: var(--cream);
   text-decoration: none;
   transition: color 0.3s;
- margin-left: -120px; 
+ margin-left: -150px; 
 }
 .logo:hover { color: var(--gold-light); }
 
