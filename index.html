@@ -331,6 +331,28 @@ footer{
 <script>
 const nav = document.querySelector('nav');
 </script>
+  <!-- todo tu contenido HTML -->
 
+  <script>
+    const nav = document.getElementById('nav');
+    const btn = document.getElementById('menuBtn');
+    const links = document.querySelectorAll('#nav a');
+
+    btn.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !btn.contains(e.target)) {
+        nav.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
