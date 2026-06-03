@@ -1,125 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Tony Rymer — Cellist</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+:root{
+  --bg:#050505;
+  --text:#f2efe9;
+  --muted:rgba(242,239,233,.6);
+  --line:rgba(255,255,255,.12);
+  --accent:#c8a96e;
+  --max:1100px;
 }
 
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-  font-family:"Cormorant Garamond", Georgia, serif;
-  background:#000;
-  color:#fff;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Josefin Sans",sans-serif;
   overflow-x:hidden;
+}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  padding:22px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+}
+
+.logo{
+  font-family:"Cormorant Garamond";
+  letter-spacing:4px;
+  font-size:18px;
+}
+
+nav{
+  display:flex;
+  gap:30px;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--text);
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  opacity:.7;
+  transition:.3s;
+}
+
+nav a:hover{opacity:1}
+
+/* MOBILE MENU */
+.menu-btn{
+  display:none;
+  font-size:22px;
+  cursor:pointer;
+}
+
+@media(max-width:768px){
+  nav{
+    position:fixed;
+    top:0;
+    right:-100%;
+    height:100vh;
+    width:70%;
+    background:#0a0a0a;
+    flex-direction:column;
+    padding:80px 30px;
+    gap:25px;
+    transition:.4s ease;
+  }
+
+  nav.active{right:0}
+
+  .menu-btn{display:block}
 }
 
 /* HERO */
 .hero{
   height:100vh;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   text-align:center;
   padding:20px;
-
   background:
-    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.92)),
-    url("DSC_9597ed9.jpg");
-
-  background-size:cover;
-  background-position:center;
+    linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.9)),
+    url("DSC_9597ed9.jpg") center/cover no-repeat;
 }
 
 .hero h1{
-  font-size:78px;
-  letter-spacing:4px;
-  font-weight:400;
-}
-
-.hero h2{
-  font-size:18px;
-  letter-spacing:6px;
-  margin-top:10px;
-  opacity:.8;
-  text-transform:uppercase;
+  font-size:70px;
+  font-family:"Cormorant Garamond";
+  font-weight:300;
 }
 
 .hero p{
-  max-width:700px;
+  max-width:600px;
   margin-top:20px;
-  opacity:.85;
-  line-height:1.7;
-}
-
-.btn{
-  margin-top:30px;
-  padding:12px 24px;
-  border:1px solid white;
-  color:white;
-  text-decoration:none;
-  letter-spacing:2px;
-  transition:.3s;
-}
-
-.btn:hover{
-  background:white;
-  color:black;
+  color:var(--muted);
 }
 
 /* SECTIONS */
 section{
-  padding:90px 40px;
-  max-width:1000px;
+  max-width:var(--max);
+  margin:auto;
+  padding:90px 20px;
+}
+
+h2{
+  font-family:"Cormorant Garamond";
+  font-size:36px;
+  margin-bottom:30px;
+}
+
+/* QUOTE */
+.quote{
+  font-size:20px;
+  font-style:italic;
+  color:var(--muted);
+  text-align:center;
+  max-width:800px;
   margin:auto;
 }
 
-h3{
-  font-size:34px;
-  margin-bottom:25px;
-  letter-spacing:1px;
+/* BIO */
+.bio{
+  color:var(--muted);
+  line-height:1.9;
 }
 
-/* EVENTS */
-.event{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:22px;
-  border:1px solid rgba(255,255,255,.12);
-  margin-bottom:15px;
-}
-
-.event:hover{
-  border-color:rgba(255,255,255,.35);
-}
-
-.ticket{
-  padding:10px 16px;
-  border:1px solid white;
-  color:white;
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 22px;
+  border:1px solid var(--text);
+  color:var(--text);
   text-decoration:none;
-  font-size:12px;
+  font-size:11px;
+  letter-spacing:3px;
 }
 
-.ticket:hover{
-  background:white;
-  color:black;
+.btn:hover{
+  background:var(--text);
+  color:#000;
 }
 
 /* VIDEO */
 .video{
   position:relative;
   padding-top:56.25%;
-  margin-top:20px;
 }
 
 .video iframe{
@@ -130,94 +171,167 @@ h3{
   border:0;
 }
 
-/* BIO */
-.bio{
-  line-height:1.9;
-  opacity:.88;
-  font-size:18px;
+/* EVENTS */
+.event{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+  border-bottom:1px solid var(--line);
+}
+
+.event span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.ticket{
+  border:1px solid var(--text);
+  padding:10px 18px;
+  font-size:10px;
+  letter-spacing:2px;
+  text-decoration:none;
+  color:var(--text);
+}
+
+.ticket:hover{
+  background:var(--text);
+  color:#000;
+}
+
+/* CONTACT */
+.contact{
+  display:grid;
+  gap:15px;
+}
+
+input,textarea{
+  width:100%;
+  padding:12px;
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--text);
+}
+
+button{
+  padding:12px;
+  border:1px solid var(--text);
+  background:none;
+  color:var(--text);
+  cursor:pointer;
 }
 
 /* FOOTER */
 footer{
   text-align:center;
   padding:50px 20px;
-  border-top:1px solid rgba(255,255,255,.1);
-  opacity:.7;
+  border-top:1px solid var(--line);
+  color:var(--muted);
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+<header>
+  <div class="logo">TONY RYMER</div>
+
+  <div class="menu-btn" onclick="document.querySelector('nav').classList.toggle('active')">
+    ☰
+  </div>
+
+  <nav>
+    <a href="#bio">Bio</a>
+    <a href="#media">Media</a>
+    <a href="#calendar">Calendar</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
 <!-- HERO -->
 <section class="hero">
-  <h1>Tony Rymer</h1>
-  <h2>Cellist</h2>
-
-  <p>
-    International cellist known for expressive depth, orchestral leadership and chamber music collaborations across Europe and the United States.
-  </p>
-
-  <a class="btn" href="#events">Upcoming concerts</a>
-</section>
-
-<!-- EVENTS -->
-<section id="events">
-  <h3>Upcoming Concerts</h3>
-
-  <div class="event">
-    <div>
-      <strong>12 March 2026</strong><br>
-      Berlin Philharmonie
-    </div>
-    <a class="ticket" href="#">Tickets</a>
-  </div>
-
-  <div class="event">
-    <div>
-      <strong>18 April 2026</strong><br>
-      Royal Albert Hall — London
-    </div>
-    <a class="ticket" href="#">Tickets</a>
-  </div>
-
-  <div class="event">
-    <div>
-      <strong>05 May 2026</strong><br>
-      Concertgebouw — Amsterdam
-    </div>
-    <a class="ticket" href="#">Tickets</a>
+  <div>
+    <h1>Tony Rymer</h1>
+    <p>Cellist · Performer · International Soloist</p>
   </div>
 </section>
 
-<!-- MEDIA -->
+<!-- QUOTE -->
 <section>
-  <h3>Featured Performance</h3>
-
- <div class="video">
-<iframe
-  src="https://www.youtube.com/embed/grtOob1WED0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
-</div>
+  <div class="quote">
+    “One of the most expressive voices of the modern cello generation, combining precision and emotional depth.”
+  </div>
 </section>
 
 <!-- BIO -->
-<section>
-  <h3>Biography</h3>
-
+<section id="bio">
+  <h2>Biography</h2>
   <p class="bio">
-    Tony Rymer is an internationally acclaimed cellist performing as soloist, chamber musician and orchestral artist.  
-    He has appeared with leading orchestras across the United States and Europe and collaborated with major figures in classical music.  
-    His artistic work is characterized by a deep expressive tone, structural clarity and refined musicality.
+    Tony Rymer is an internationally performing cellist known for his expressive tone and refined musical interpretation.
+    He performs across Europe and the United States as a soloist and chamber musician.
   </p>
+
+  <a class="btn" href="bio.html">Read more</a>
+</section>
+
+<!-- MEDIA -->
+<section id="media">
+  <h2>Video</h2>
+
+  <div class="video">
+    <iframe
+      src="https://www.youtube.com/embed/grtOob1WED0"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section id="calendar">
+  <h2>Upcoming concerts</h2>
+
+  <div class="event">
+    <div>
+      <strong>Berlin</strong><br>
+      <span>12 March 2026</span>
+    </div>
+    <a class="ticket" href="#">Tickets</a>
+  </div>
+
+  <div class="event">
+    <div>
+      <strong>London</strong><br>
+      <span>18 April 2026</span>
+    </div>
+    <a class="ticket" href="#">Tickets</a>
+  </div>
+
+  <div style="text-align:center;margin-top:30px;">
+    <a class="btn" href="calendar.html">More events</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+
+  <div class="contact">
+    <input placeholder="Name">
+    <input placeholder="Email">
+    <textarea placeholder="Message"></textarea>
+    <button>Send</button>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  © 2026 Tony Rymer — Cellist
+  © 2026 Tony Rymer
 </footer>
+
+<script>
+const nav = document.querySelector('nav');
+</script>
 
 </body>
 </html>
