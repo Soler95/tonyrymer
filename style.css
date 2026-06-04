@@ -975,3 +975,16 @@ h2 {
     padding-bottom: 0;
   }
 }
+/* ── SOLO BIO PAGE FIX ── */
+#bio .bio-text {
+  max-width: 100%;
+}
+
+#bio .bio-grid {
+  grid-template-columns: 1fr;
+}
+
+#bio .section-inner {
+  padding-left: 24px;
+  padding-right: 24px;
+}
