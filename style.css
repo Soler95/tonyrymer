@@ -280,27 +280,31 @@ body.nav-open { overflow: hidden; }
 @media (max-width: 768px) {
   .hero {
     align-items: flex-end;
+    height: 100svh; /* mejor que 100vh en móvil */
   }
 
   .hero-content {
-    padding: 0 24px 40px;
+    padding: 0 24px 80px;
   }
 
-  /* tighten vertical rhythm */
   .eyebrow {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
   .hero-content h1 {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .hero-divider {
-    margin: 16px 0;
+    margin: 12px 0;
   }
 
   .sub {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+  }
+
+  .hero-cta {
+    transform: translateY(-10px); /* 👈 este es el ajuste clave */
   }
 }
 
