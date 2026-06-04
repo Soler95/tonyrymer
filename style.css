@@ -308,7 +308,11 @@ body.nav-open { overflow: hidden; }
     display: none;
   }
 }
-} 
+ @media (max-width: 768px) {
+  .hero {
+    padding-bottom: 60px;
+  }
+}
 }
 /* ── Scroll indicator ── */
 .scroll-indicator {
