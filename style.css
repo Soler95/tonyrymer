@@ -937,22 +937,31 @@ h2 {
 
   .footer-inner { gap: 28px; }
 }
-/* ── MOBILE FIX: HERO LIGHT + CLEAN ── */
+/* ── MOBILE FIX: HERO BALANCED LIGHT ── */
 @media (max-width: 768px) {
 
-  /* HERO IMAGE: make it brighter */
+  /* IMAGE: slightly brighter but controlled */
   .hero-photo {
-    filter: brightness(1.45) contrast(1.05) !important;
+    filter: brightness(1.18) contrast(1.05) !important;
     opacity: 1 !important;
   }
 
-  /* REMOVE DARK OVERLAY IN MOBILE */
+  /* VERY LIGHT OVERLAY (adds elegance, not darkness) */
   .hero-overlay {
-    background: transparent !important;
+    background:
+      linear-gradient(to right,
+        rgba(9,8,10,0.18) 0%,
+        rgba(9,8,10,0.05) 70%,
+        rgba(9,8,10,0.0) 100%
+      ),
+      linear-gradient(to top,
+        rgba(9,8,10,0.08) 0%,
+        transparent 100%
+      ) !important;
     opacity: 1 !important;
   }
 
-  /* SAFETY RESET (avoids hidden dark layers) */
+  /* SAFETY RESET */
   .hero-photo,
   .hero-overlay {
     opacity: 1 !important;
