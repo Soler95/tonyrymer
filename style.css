@@ -937,3 +937,24 @@ h2 {
 
   .footer-inner { gap: 28px; }
 }
+/* ── MOBILE FIX: HERO LIGHT + CLEAN ── */
+@media (max-width: 768px) {
+
+  /* HERO IMAGE: make it brighter */
+  .hero-photo {
+    filter: brightness(1.45) contrast(1.05) !important;
+    opacity: 1 !important;
+  }
+
+  /* REMOVE DARK OVERLAY IN MOBILE */
+  .hero-overlay {
+    background: transparent !important;
+    opacity: 1 !important;
+  }
+
+  /* SAFETY RESET (avoids hidden dark layers) */
+  .hero-photo,
+  .hero-overlay {
+    opacity: 1 !important;
+  }
+}
