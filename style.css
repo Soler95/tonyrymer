@@ -350,7 +350,11 @@ body.nav-open { overflow: hidden; }
   opacity: 1;
   transform: translateY(0);
 }
-
+@media (max-width: 768px) {
+  .scroll-indicator {
+    display: none;
+  }
+}
 /* ══════════════════
    QUOTE SECTION
 ══════════════════ */
