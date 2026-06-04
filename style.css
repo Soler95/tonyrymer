@@ -284,27 +284,28 @@ body.nav-open { overflow: hidden; }
   }
 
   .hero-content {
-    padding: 0 24px 80px;
+    padding: 0 24px 60px;
   }
 
   .eyebrow {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .hero-content h1 {
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   .hero-divider {
-    margin: 12px 0;
+    margin: 10px 0;
+    height: 40px;
   }
 
   .sub {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .hero-cta {
-    transform: translateY(-10px); /* 👈 este es el ajuste clave */
+    transform: translateY(-6px);
   }
 }
 
