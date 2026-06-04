@@ -975,23 +975,29 @@ h2 {
     padding-bottom: 0;
   }
 }
-/* ── BIO PAGE FULL WIDTH FIX ── */
+/* ── BIO PAGE FULL WIDTH FIX (CLEAN VERSION) ── */
+
 #bio .section-inner {
-  max-width: 100%;
+  max-width: 100% !important;
+  width: 100% !important;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* 🔥 clave: eliminar el grid completamente */
+#bio .bio-grid {
+  display: block !important;
+}
+
+/* texto ocupa todo el ancho disponible */
+#bio .bio-text {
+  max-width: 100% !important;
   width: 100%;
 }
 
-#bio .bio-grid {
-  display: grid !important;
-  grid-template-columns: 1fr !important;
-}
-
-#bio .bio-text {
-  max-width: 100%;
-}
-
-/* opcional: mejora visual de la parte decorativa */
+/* decoración separada debajo */
 #bio .bio-deco {
   margin-top: 40px;
   opacity: 0.3;
 }
+   
