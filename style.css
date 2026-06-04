@@ -276,11 +276,11 @@ body.nav-open { overflow: hidden; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Mobile Hero Position ── */
+/* ── Mobile Hero Position (compact version) ── */
 @media (max-width: 768px) {
   .hero {
     align-items: flex-end;
-    height: 100svh; /* mejor que 100vh en móvil */
+    height: 100svh;
   }
 
   .hero-content {
@@ -288,27 +288,27 @@ body.nav-open { overflow: hidden; }
   }
 
   .eyebrow {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .hero-content h1 {
-    margin-bottom: 4px;
+    margin-bottom: 2px;
+    line-height: 0.9;
   }
 
   .hero-divider {
-    margin: 10px 0;
-    height: 40px;
+    margin: 6px 0;
+    height: 24px;
   }
 
   .sub {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .hero-cta {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
   }
 }
-
 /* ── Scroll indicator ── */
 .scroll-indicator {
   position: absolute;
