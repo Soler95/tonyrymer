@@ -922,23 +922,3 @@ h2 {
 
   .footer-inner { gap: 28px; }
 }
-@media (max-width: 768px) {
-  .hero-photo {
-    filter: brightness(1.25) contrast(1.05);
-    transform: scale(1.02);
-  }
-  }
-
-}
-@media (max-width: 768px) {
-  .hero-overlay {
-    background:
-      linear-gradient(to right,
-        rgba(9,8,10,0.10) 0%,
-        rgba(9,8,10,0.00) 70%
-      ),
-      linear-gradient(to top,
-        rgba(9,8,10,0.00) 0%,
-        transparent 100%
-      );
-  }
