@@ -276,7 +276,6 @@ body.nav-open { overflow: hidden; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Mobile Hero Position (compact version) ── */
 @media (max-width: 768px) {
   .hero {
     align-items: flex-end;
@@ -284,34 +283,31 @@ body.nav-open { overflow: hidden; }
   }
 
   .hero-content {
-    padding: 0 24px 60px;
+    padding: 0 24px 90px; /* 👈 SUBE todo el bloque */
   }
 
   .eyebrow {
-    margin-bottom: 6px;
+    margin-bottom: 10px;
   }
 
   .hero-content h1 {
-    margin-bottom: 2px;
+    margin-bottom: 10px; /* 👈 espacio entre nombre y subtítulo */
     line-height: 0.9;
   }
 
-  .hero-divider {
-    margin: 6px 0;
-    height: 24px;
-  }
-
   .sub {
-    margin-bottom: 6px;
+    margin-bottom: 12px;
   }
 
   .hero-cta {
     transform: translateY(-4px);
   }
-  @media (max-width: 768px) {
+
+  /* ya no hay divider en móvil */
   .hero-divider {
     display: none;
   }
+}
 } 
 }
 /* ── Scroll indicator ── */
