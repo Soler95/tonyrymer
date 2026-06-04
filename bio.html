@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Tony Rymer — International Cellist. Soloist, chamber musician, and international performer."/>
+  <title>Tony Rymer — Cellist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#home" class="logo">TONY RYMER</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav" id="nav" role="navigation">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#bio" class="nav-link">Bio</a>
+        <a href="#media" class="nav-link">Media</a>
+        <a href="#calendar" class="nav-link">Calendar</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-photo" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="eyebrow">Tony Rymer</p>
+      <h1>Biography</h1>
+      <div class="hero-divider" aria-hidden="true"></div>
+      <p class="sub">Cellist</p>
+      <a href="#bio" class="hero-cta">Discover</a>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+
+  <!-- BIO -->
+  <section id="bio" class="section">
+    <div class="section-inner bio-grid">
+      <div class="bio-text">
+        <div class="section-label" data-animate>Biography</div>
+        <h2 data-animate>The Artist</h2>
+        <p class="body-text" data-animate>
+          Tony Rymer is an internationally performing cellist known for expressive tone,
+          refined interpretation and commanding stage presence across Europe and the United States.
+          His playing bridges the classical tradition with a deeply personal voice.
+        </p>
+        <p class="body-text" data-animate>
+          A graduate of the Royal Academy of Music, Rymer has performed in the world's most
+          prestigious concert halls alongside leading orchestras and chamber ensembles,
+          bringing audiences to their feet from Berlin to New York.
+        </p>
+        <a class="btn" href="bio.html" data-animate>Read full biography</a>
+      </div>
+      <div class="bio-deco" data-animate aria-hidden="true">
+        <span class="deco-number">01</span>
+        <div class="deco-rule"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-logo">TONY RYMER</div>
+        <div class="footer-role">Cellist · International Performer</div>
+      </div>
+      <div class="footer-center">
+        <p class="footer-quote">"Music is not played, it is revealed."</p>
+      </div>
+      <div class="footer-right">
+        <a href="#" class="footer-link">Instagram</a>
+        <a href="#" class="footer-link">YouTube</a>
+        <a href="#" class="footer-link">Spotify</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tony Rymer. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Header scroll ── */
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    /* ── Mobile nav ── */
+    const nav = document.getElementById('nav');
+    const btn = document.getElementById('menuBtn');
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      document.body.classList.toggle('nav-open', open);
+    });
+    document.querySelectorAll('.nav-link').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        btn.classList.remove('open');
+        document.body.classList.remove('nav-open');
+      });
+    });
+
+    /* ── Scroll animations ── */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          entry.target.style.transitionDelay = `${i * 60}ms`;
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+    /* ── Smooth scroll ── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    /* ── Contact form ── */
+    document.getElementById('sendBtn').addEventListener('click', () => {
+      const name   = document.getElementById('f-name').value.trim();
+      const email  = document.getElementById('f-email').value.trim();
+      const msg    = document.getElementById('f-msg').value.trim();
+      if (!name || !email || !msg) return;
+      const sendBtn = document.getElementById('sendBtn');
+      sendBtn.textContent = 'Sent ✓';
+      sendBtn.disabled = true;
+      document.getElementById('formSuccess').classList.add('show');
+    });
+  </script>
+</body>
+</html>
