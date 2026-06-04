@@ -285,6 +285,11 @@ body.nav-open { overflow: hidden; }
   .hero-content {
     padding: 0 24px 60px;
   }
+
+  /* reduce space between subtitle and button (moves only button up) */
+  .sub {
+    margin-bottom: 16px;
+  }
 }
 
 /* ── Scroll indicator ── */
