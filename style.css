@@ -966,4 +966,12 @@ h2 {
   .hero-overlay {
     opacity: 1 !important;
   }
+@media (max-width: 768px) {
+  .hero {
+    padding-bottom: 110px;
+  }
+
+  .hero-content {
+    padding-bottom: 0;
+  }
 }
