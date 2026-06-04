@@ -975,16 +975,23 @@ h2 {
     padding-bottom: 0;
   }
 }
-/* ── SOLO BIO PAGE FIX ── */
+/* ── BIO PAGE FULL WIDTH FIX ── */
+#bio .section-inner {
+  max-width: 100%;
+  width: 100%;
+}
+
+#bio .bio-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+}
+
 #bio .bio-text {
   max-width: 100%;
 }
 
-#bio .bio-grid {
-  grid-template-columns: 1fr;
-}
-
-#bio .section-inner {
-  padding-left: 24px;
-  padding-right: 24px;
+/* opcional: mejora visual de la parte decorativa */
+#bio .bio-deco {
+  margin-top: 40px;
+  opacity: 0.3;
 }
