@@ -276,6 +276,17 @@ body.nav-open { overflow: hidden; }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ── Mobile Hero Position ── */
+@media (max-width: 768px) {
+  .hero {
+    align-items: flex-end;
+  }
+
+  .hero-content {
+    padding: 0 24px 60px;
+  }
+}
+
 /* ── Scroll indicator ── */
 .scroll-indicator {
   position: absolute;
