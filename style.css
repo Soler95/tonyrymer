@@ -308,6 +308,11 @@ body.nav-open { overflow: hidden; }
   .hero-cta {
     transform: translateY(-4px);
   }
+  @media (max-width: 768px) {
+  .hero-divider {
+    display: none;
+  }
+} 
 }
 /* ── Scroll indicator ── */
 .scroll-indicator {
