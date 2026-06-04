@@ -193,6 +193,12 @@ body.nav-open { overflow: hidden; }
       rgba(9,8,10,0.55) 0%,
       transparent 35%
     );
+   @media (max-width: 768px) {
+  .hero-photo {
+    transform: scale(1.02);
+    filter: brightness(1.15) contrast(1.05);
+  }
+}
 }
 @media (max-width: 768px) {
   .hero-overlay {
