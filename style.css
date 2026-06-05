@@ -942,3 +942,383 @@ h2 {
 
   .footer-inner { gap: 28px; }
 }
+
+
+/* ══════════════════════════════════════════
+   PREMIUM ADDITIONS
+   Cursor · Loader · Typography · Shimmer
+   Reveal motion · Ambient glow · Polish
+   ══════════════════════════════════════════ */
+
+/* ── Text selection ── */
+::selection {
+  background: rgba(184, 144, 80, 0.22);
+  color: var(--cream);
+}
+
+/* ── OpenType features for typography ── */
+h1, h2, blockquote, .event-info h3 {
+  font-feature-settings: 'liga' 1, 'kern' 1, 'onum' 1;
+  text-rendering: optimizeLegibility;
+}
+
+/* ══════════════════
+   CURSOR CUSTOM
+══════════════════ */
+@media (hover: hover) and (pointer: fine) {
+  body { cursor: none; }
+
+  .cursor-dot {
+    position: fixed;
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, opacity 0.3s, width 0.25s, height 0.25s, background 0.25s;
+    will-change: left, top;
+  }
+
+  .cursor-ring {
+    position: fixed;
+    width: 32px; height: 32px;
+    border: 1px solid var(--gold-border);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s var(--ease-out), height 0.4s var(--ease-out),
+                border-color 0.4s, transform 0.12s, opacity 0.3s;
+    will-change: left, top;
+  }
+
+  /* Hover states: cursor expands on interactive elements */
+  body.cursor-hover .cursor-dot {
+    width: 10px; height: 10px;
+    background: var(--gold-light);
+  }
+  body.cursor-hover .cursor-ring {
+    width: 52px; height: 52px;
+    border-color: var(--gold);
+  }
+
+  /* Links & buttons show default pointer via JS class */
+  a, button, .event, .btn, .hero-cta, .ticket-btn {
+    cursor: none;
+  }
+}
+
+/* ══════════════════
+   PAGE LOADER
+══════════════════ */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 32px;
+  transition: opacity 0.8s var(--ease-out), visibility 0.8s;
+}
+
+.loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-wordmark {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0;
+  animation: loader-reveal 0.9s var(--ease-out) 0.2s forwards;
+}
+
+.loader-bar-wrap {
+  width: 120px;
+  height: 1px;
+  background: var(--gold-border);
+  overflow: hidden;
+  opacity: 0;
+  animation: loader-reveal 0.5s var(--ease-out) 0.5s forwards;
+}
+
+.loader-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--gold);
+  animation: loader-fill 1.2s var(--ease-out) 0.6s forwards;
+}
+
+@keyframes loader-reveal {
+  to { opacity: 1; }
+}
+
+@keyframes loader-fill {
+  to { width: 100%; }
+}
+
+/* ══════════════════
+   GOLD SHIMMER UTILITY
+   Apply .shimmer to any element
+══════════════════ */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(184, 144, 80, 0.18) 50%,
+    transparent 60%
+  );
+  animation: shimmer-sweep 3.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer-sweep {
+  0%   { left: -100%; }
+  60%  { left: 160%; }
+  100% { left: 160%; }
+}
+
+/* ══════════════════
+   SECTION TRANSITION LINES
+══════════════════ */
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 48px; right: 48px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--gold-border) 20%,
+    var(--gold-border) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.section:first-of-type::before { display: none; }
+
+/* ══════════════════
+   AMBIENT GLOW — section bg depth
+══════════════════ */
+.section--dark::after {
+  content: '';
+  position: absolute;
+  bottom: -120px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 300px;
+  background: radial-gradient(ellipse at center, rgba(184,144,80,0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section--dark > * { position: relative; z-index: 1; }
+
+/* ══════════════════
+   QUOTE SECTION — gold glow
+══════════════════ */
+.quote-section {
+  position: relative;
+}
+
+.quote-section::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px; height: 200px;
+  background: radial-gradient(ellipse, rgba(184,144,80,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ══════════════════
+   NAV — active state dot
+══════════════════ */
+.nav-link.active {
+  color: var(--cream);
+}
+
+.nav-link.active::after {
+  width: 100%;
+  background: var(--gold);
+}
+
+/* ══════════════════
+   HERO — gold text glow on h1
+══════════════════ */
+.hero-content h1 {
+  text-shadow: 0 0 80px rgba(184, 144, 80, 0.08);
+}
+
+/* ══════════════════
+   LOGO — refined breathing mark
+══════════════════ */
+.logo::before {
+  content: '—';
+  color: var(--gold);
+  margin-right: 12px;
+  font-weight: 300;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+.logo:hover::before { opacity: 1; }
+
+/* ══════════════════
+   EVENT ROW — gold left accent line
+══════════════════ */
+.event {
+  border-left: 2px solid transparent;
+  padding-left: 0;
+  transition: border-color 0.35s var(--ease), padding-left 0.3s var(--ease);
+}
+
+.event:hover {
+  border-left-color: var(--gold);
+}
+
+/* ══════════════════
+   TICKET BTN — arrow animation
+══════════════════ */
+.ticket-btn::after {
+  content: ' →';
+  display: inline-block;
+  transform: translateX(0);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.ticket-btn:hover::after {
+  transform: translateX(6px);
+}
+
+/* ══════════════════
+   FORM — enhanced focus glow
+══════════════════ */
+.form-group:focus-within label {
+  text-shadow: 0 0 18px rgba(184, 144, 80, 0.4);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: transparent;
+}
+
+/* ══════════════════
+   SCROLL PROGRESS BAR
+══════════════════ */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(to right, var(--gold-border), var(--gold), var(--gold-light));
+  z-index: 9000;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ══════════════════
+   VIDEO CORNERS — animated
+══════════════════ */
+.corner {
+  transition: width 0.4s var(--ease), height 0.4s var(--ease), border-color 0.4s;
+}
+
+.video-wrapper:hover .corner {
+  width: 36px; height: 36px;
+  border-color: var(--gold);
+}
+
+/* ══════════════════
+   SECTION LABEL — pulse dot
+══════════════════ */
+.section-label::after {
+  content: '';
+  display: inline-block;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-left: 4px;
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(0.6); }
+}
+
+/* ══════════════════
+   FOOTER — gold divider flourish
+══════════════════ */
+.footer-inner::before {
+  content: '✦';
+  position: absolute;
+  left: 50%; top: 100%;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  color: var(--gold);
+  opacity: 0.5;
+}
+
+.footer-inner { position: relative; }
+
+/* ══════════════════
+   BUTTON — ripple shimmer
+══════════════════ */
+.btn, .hero-cta {
+  overflow: hidden;
+}
+
+.btn::before, .hero-cta::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s var(--ease-out), height 0.5s var(--ease-out), opacity 0.5s;
+  opacity: 0;
+}
+
+.btn { position: relative; }
+
+.btn:active::before, .hero-cta:active::before {
+  width: 300px; height: 300px;
+  opacity: 1;
+}
+
+/* ══════════════════
+   STAGGER DELAYS for data-animate children
+══════════════════ */
+[data-animate]:nth-child(2) { transition-delay: 0.1s; }
+[data-animate]:nth-child(3) { transition-delay: 0.2s; }
+[data-animate]:nth-child(4) { transition-delay: 0.3s; }
+[data-animate]:nth-child(5) { transition-delay: 0.4s; }
+
+/* ══════════════════
+   RESPONSIVE — disable extras on mobile
+══════════════════ */
+@media (max-width: 768px) {
+  .section::before { left: 28px; right: 28px; }
+  .loader-wordmark { letter-spacing: 0.35em; }
+  .event { border-left: none; }
+  .section-label::after { display: none; }
+}
