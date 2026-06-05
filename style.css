@@ -1322,3 +1322,364 @@ h1, h2, blockquote, .event-info h3 {
   .event { border-left: none; }
   .section-label::after { display: none; }
 }
+
+
+/* ══════════════════════════════════════════
+   PREMIUM WAVE 2
+   Scrollbar · Typography · Hover reveals
+   Decorative lines · Staggered grid · Depth
+   ══════════════════════════════════════════ */
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-border);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* ── Focus styles (accessibility) ── */
+:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* ══════════════════
+   HERO — depth layers
+══════════════════ */
+
+/* Vignette edge darkening */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(9, 8, 10, 0.45) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Animated gold line at hero bottom */
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--gold-border) 30%,
+    var(--gold) 50%,
+    var(--gold-border) 70%,
+    transparent 100%
+  );
+  z-index: 3;
+  animation: hero-line 3s var(--ease-out) 2s both;
+}
+
+@keyframes hero-line {
+  from { opacity: 0; transform: scaleX(0.4); }
+  to   { opacity: 1; transform: scaleX(1); }
+}
+
+/* ══════════════════
+   EYEBROW — letter reveal
+══════════════════ */
+.eyebrow {
+  background: linear-gradient(
+    90deg,
+    var(--gold-light) 0%,
+    var(--gold) 60%,
+    rgba(184,144,80,0.5) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ══════════════════
+   NAV — gold underline on scroll
+══════════════════ */
+.header.scrolled .logo {
+  font-size: 12px;
+  letter-spacing: 0.32em;
+}
+
+/* ══════════════════
+   QUOTE SECTION — italic shimmer
+══════════════════ */
+blockquote {
+  background: linear-gradient(
+    135deg,
+    var(--cream) 0%,
+    var(--cream-dim) 50%,
+    var(--cream) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: quote-shimmer 8s ease infinite;
+}
+
+@keyframes quote-shimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ══════════════════
+   BIO — pull quote aside
+══════════════════ */
+.body-text + .body-text {
+  padding-top: 4px;
+  border-left: 1px solid var(--gold-border);
+  padding-left: 20px;
+  margin-left: 0;
+}
+
+/* ══════════════════
+   SECTION NUMBERS — ambient deco
+══════════════════ */
+.section-inner { position: relative; }
+
+.section--dark .section-inner::before {
+  content: attr(data-index);
+  position: absolute;
+  top: -20px; right: 0;
+  font-family: var(--font-serif);
+  font-size: 180px;
+  font-weight: 300;
+  color: var(--gold);
+  opacity: 0.03;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.05em;
+}
+
+/* ══════════════════
+   H2 — underline reveal on visible
+══════════════════ */
+h2 {
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px; left: 0;
+  width: 0; height: 1px;
+  background: linear-gradient(to right, var(--gold), transparent);
+  transition: width 1.2s var(--ease-out);
+}
+
+[data-animate].visible h2::after,
+h2.visible::after {
+  width: 100%;
+}
+
+/* Trigger on parent visible */
+.section-inner.visible h2::after,
+[data-animate].visible + * h2::after {
+  width: 100%;
+}
+
+/* ══════════════════
+   EVENTS — premium row
+══════════════════ */
+
+/* Faint year watermark behind date */
+.event-date::before {
+  content: attr(data-year);
+  position: absolute;
+  font-family: var(--font-serif);
+  font-size: 64px;
+  font-weight: 300;
+  color: var(--gold);
+  opacity: 0.05;
+  left: -8px; top: -4px;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Venue name grows slightly on hover */
+.event:hover .event-info h3 {
+  letter-spacing: 0.02em;
+  transition: letter-spacing 0.4s var(--ease-out);
+}
+
+/* Gold dot before venue */
+.event-info h3::before {
+  content: '';
+  display: inline-block;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-right: 10px;
+  vertical-align: middle;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.3s, transform 0.3s var(--ease-out);
+}
+
+.event:hover .event-info h3::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ══════════════════
+   VIDEO — golden glow on hover
+══════════════════ */
+.video-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(
+    135deg,
+    var(--gold-border) 0%,
+    transparent 40%,
+    transparent 60%,
+    var(--gold-border) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+  border-radius: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.video-wrapper:hover::before { opacity: 1; }
+
+/* ══════════════════
+   CONTACT — form hint text
+══════════════════ */
+.body-text.contact-sub {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  border-left: 1px solid var(--gold-border);
+  padding-left: 16px;
+}
+
+/* ══════════════════
+   FOOTER — ambient gold glow
+══════════════════ */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--gold-border) 25%,
+    var(--gold) 50%,
+    var(--gold-border) 75%,
+    transparent
+  );
+}
+
+.footer { position: relative; }
+
+/* Footer logo subtle glow */
+.footer-logo {
+  transition: letter-spacing 0.4s var(--ease), color 0.4s;
+}
+.footer-logo:hover {
+  letter-spacing: 0.36em;
+  color: var(--gold-light);
+}
+
+/* ══════════════════
+   LOADER — refined typeface
+══════════════════ */
+.loader-wordmark {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 18px;
+}
+
+/* ══════════════════
+   SECTION LABEL — gold gradient text
+══════════════════ */
+.section-label {
+  background: linear-gradient(90deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Keep the ::before rule (gold line) visible */
+.section-label::before {
+  background: var(--gold);
+  -webkit-text-fill-color: initial;
+  flex-shrink: 0;
+}
+
+/* ══════════════════
+   CURSOR — subtle trail blend
+══════════════════ */
+.cursor-dot {
+  mix-blend-mode: screen;
+}
+
+/* ══════════════════
+   SECTION — staggered [data-animate] delay
+══════════════════ */
+.events .event:nth-child(1) { transition-delay: 0.05s; }
+.events .event:nth-child(2) { transition-delay: 0.15s; }
+.events .event:nth-child(3) { transition-delay: 0.25s; }
+
+/* ══════════════════
+   BTN — gold shimmer fill on hover
+══════════════════ */
+.btn {
+  background-image: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 40%,
+    var(--gold-dim) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 250% 100%;
+  background-position: 100% 0;
+  transition:
+    background 0.35s,
+    background-position 0.6s var(--ease-out),
+    color 0.35s,
+    border-color 0.35s,
+    letter-spacing 0.35s;
+}
+
+.btn:hover {
+  background-position: 0% 0;
+}
+
+/* ══════════════════
+   RESPONSIVE
+══════════════════ */
+@media (max-width: 768px) {
+  .hero::after { display: none; }
+  blockquote {
+    -webkit-text-fill-color: var(--cream);
+    background: none;
+  }
+  .body-text + .body-text {
+    border-left: none;
+    padding-left: 0;
+  }
+  h2::after { display: none; }
+}
