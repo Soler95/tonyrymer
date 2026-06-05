@@ -1683,3 +1683,41 @@ h2.visible::after {
   }
   h2::after { display: none; }
 }
+/* ══════════════════
+   FIX HORIZONTAL SCROLL MOBILE
+══════════════════ */
+
+html {
+  overflow-x: hidden;
+}
+
+/* Limitar decorativos que desbordan */
+.footer::before {
+  width: 100%;
+  max-width: 100%;
+}
+
+.section--dark .section-inner::before {
+  right: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.section--dark {
+  overflow: hidden;
+}
+
+.quote-section {
+  overflow: hidden;
+}
+
+.footer {
+  overflow: hidden;
+}
+
+/* Bio page grid en móvil */
+@media (max-width: 900px) {
+  .bio-page-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
