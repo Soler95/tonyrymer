@@ -148,13 +148,12 @@ body.nav-open { overflow: hidden; }
   transform: translateY(8px) rotate(45deg);
 }
 .menu-btn.open span:nth-child(2) {
-  transform: translateY(-0px) rotate(-45deg);
+  transform: translateY(0) rotate(-45deg);
 }
 
 /* ══════════════════
    HERO
 ══════════════════ */
-
 .hero {
   position: relative;
   height: 100vh;
@@ -172,6 +171,7 @@ body.nav-open { overflow: hidden; }
   background: url('DSC_9597ed9.jpg') center center / cover no-repeat;
   transform: scale(1.04);
   animation: hero-zoom 14s ease-out forwards;
+  will-change: transform;
 }
 
 @keyframes hero-zoom {
@@ -188,7 +188,7 @@ body.nav-open { overflow: hidden; }
       rgba(9,8,10,0.92) 0%,
       rgba(9,8,10,0.78) 30%,
       rgba(9,8,10,0.30) 58%,
-      rgba(9,8,10,0.0) 80%
+      rgba(9,8,10,0.00) 80%
     ),
     linear-gradient(to top,
       rgba(9,8,10,0.55) 0%,
@@ -278,57 +278,6 @@ body.nav-open { overflow: hidden; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ─────────────────────────
-   MOBILE
-───────────────────────── */
-
-@media (max-width: 768px) {
-
-  .hero {
-    align-items: flex-end;
-    height: 100svh;
-  }
-
-  .hero-content {
-    padding: 0 24px 80px;
-    max-width: 100%;
-  }
-
-  .eyebrow {
-    margin-bottom: 10px;
-  }
-
-  .hero-content h1 {
-    margin-bottom: 10px;
-    line-height: 0.9;
-  }
-
-  .sub {
-    margin-bottom: 12px;
-  }
-
-  .hero-cta {
-    transform: translateY(-4px);
-  }
-
-  .hero-divider {
-    display: none;
-  }
-
-  .hero-overlay {
-    background:
-      linear-gradient(to right,
-        rgba(9,8,10,0.25) 0%,
-        rgba(9,8,10,0.05) 70%,
-        rgba(9,8,10,0.0) 100%
-      ),
-      linear-gradient(to top,
-        rgba(9,8,10,0.10) 0%,
-        transparent 100%
-      );
-  }
-}
-}
 /* ── Scroll indicator ── */
 .scroll-indicator {
   position: absolute;
@@ -353,9 +302,9 @@ body.nav-open { overflow: hidden; }
 }
 
 @keyframes scroll-anim {
-  0%   { transform: scaleY(0) translateY(0); transform-origin: top; opacity: 1; }
-  50%  { transform: scaleY(1) translateY(0); transform-origin: top; opacity: 1; }
-  100% { transform: scaleY(1) translateY(0); transform-origin: top; opacity: 0; }
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
 }
 
 /* ══════════════════
@@ -371,11 +320,7 @@ body.nav-open { overflow: hidden; }
   opacity: 1;
   transform: translateY(0);
 }
-@media (max-width: 768px) {
-  .scroll-indicator {
-    display: none;
-  }
-}
+
 /* ══════════════════
    QUOTE SECTION
 ══════════════════ */
@@ -528,7 +473,6 @@ h2 {
   cursor: pointer;
   background: transparent;
   transition: background 0.35s, color 0.35s, border-color 0.35s, letter-spacing 0.35s;
-  font-family: var(--font-sans);
 }
 
 .btn:hover {
@@ -598,8 +542,9 @@ h2 {
   gap: 48px;
   padding: 32px 0;
   border-bottom: 1px solid var(--gold-border);
-  transition: background 0.3s, padding-left 0.3s var(--ease);
+  transition: padding-left 0.3s var(--ease);
   position: relative;
+  overflow: hidden;
 }
 
 .event:first-child { border-top: 1px solid var(--gold-border); }
@@ -860,7 +805,14 @@ h2 {
 }
 
 /* ══════════════════
-   RESPONSIVE
+   BIO SECTION
+══════════════════ */
+#bio .bio-text {
+  max-width: 580px;
+}
+
+/* ══════════════════
+   RESPONSIVE — 860px
 ══════════════════ */
 @media (max-width: 860px) {
   :root { --section-pad: 90px; }
@@ -905,10 +857,62 @@ h2 {
   .footer-right { justify-content: center; }
 }
 
+/* ══════════════════
+   RESPONSIVE — 768px
+══════════════════ */
+@media (max-width: 768px) {
+  .hero {
+    align-items: flex-end;
+    height: 100svh;
+    padding-bottom: 40px;
+  }
+
+  .hero-photo {
+    filter: brightness(1.18) contrast(1.05);
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(to right,
+        rgba(9,8,10,0.18) 0%,
+        rgba(9,8,10,0.05) 70%,
+        rgba(9,8,10,0.00) 100%
+      ),
+      linear-gradient(to top,
+        rgba(9,8,10,0.08) 0%,
+        transparent 100%
+      );
+  }
+
+  .hero-content {
+    padding: 0 24px;
+    max-width: 100%;
+  }
+
+  .eyebrow { margin-bottom: 10px; }
+
+  .hero-content h1 {
+    margin-bottom: 10px;
+    line-height: 0.9;
+  }
+
+  .sub { margin-bottom: 12px; }
+
+  .hero-cta { transform: translateY(-4px); }
+
+  .hero-divider { display: none; }
+
+  .scroll-indicator { display: none; }
+}
+
+/* ══════════════════
+   RESPONSIVE — 560px
+══════════════════ */
 @media (max-width: 560px) {
   :root { --section-pad: 70px; }
 
   .hero-content { padding: 0 28px; max-width: 100%; }
+
   .hero-overlay {
     background:
       linear-gradient(to right,
@@ -917,10 +921,11 @@ h2 {
         rgba(9,8,10,0.50) 100%
       ),
       linear-gradient(to top,
-        rgba(9,8,10,0.6) 0%,
+        rgba(9,8,10,0.60) 0%,
         transparent 40%
       );
   }
+
   .hero-content h1 { font-size: 72px; }
   .hero-divider { height: 40px; margin: 24px 0; }
 
@@ -937,67 +942,3 @@ h2 {
 
   .footer-inner { gap: 28px; }
 }
-/* ── MOBILE FIX: HERO BALANCED LIGHT ── */
-@media (max-width: 768px) {
-
-  /* IMAGE: slightly brighter but controlled */
-  .hero-photo {
-    filter: brightness(1.18) contrast(1.05) !important;
-    opacity: 1 !important;
-  }
-
-  /* VERY LIGHT OVERLAY (adds elegance, not darkness) */
-  .hero-overlay {
-    background:
-      linear-gradient(to right,
-        rgba(9,8,10,0.18) 0%,
-        rgba(9,8,10,0.05) 70%,
-        rgba(9,8,10,0.0) 100%
-      ),
-      linear-gradient(to top,
-        rgba(9,8,10,0.08) 0%,
-        transparent 100%
-      ) !important;
-    opacity: 1 !important;
-  }
-
-  /* SAFETY RESET */
-  .hero-photo,
-  .hero-overlay {
-    opacity: 1 !important;
-  }
-@media (max-width: 768px) {
-  .hero {
-    padding-bottom: 40px;
-  }
-
-  .hero-content {
-    padding-bottom: 0;
-  }
-}
-/* ── BIO PAGE FULL WIDTH FIX (CLEAN VERSION) ── */
-
-#bio .section-inner {
-  max-width: 100% !important;
-  width: 100% !important;
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-/* 🔥 clave: eliminar el grid completamente */
-#bio .bio-grid {
-  display: block !important;
-}
-
-/* texto ocupa todo el ancho disponible */
-#bio .bio-text {
-  max-width: 100% !important;
-  width: 100%;
-}
-
-/* decoración separada debajo */
-#bio .bio-deco {
-  margin-top: 40px;
-  opacity: 0.3;
-}
-   
