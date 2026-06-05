@@ -8,9 +8,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="tony-rymer.css">
 </head>
 <body>
+
+  <!-- ① Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <span class="loader-wordmark">Tony Rymer</span>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+
+  <!-- ② Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ③ Custom cursor (desktop only) -->
+  <div class="cursor-dot"  aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
 
   <!-- Grain overlay -->
   <div class="grain" aria-hidden="true"></div>
@@ -24,11 +39,11 @@
         <span></span>
       </button>
       <nav class="nav" id="nav" role="navigation">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#bio" class="nav-link">Bio</a>
-        <a href="#media" class="nav-link">Media</a>
+        <a href="#home"     class="nav-link">Home</a>
+        <a href="#bio"      class="nav-link">Bio</a>
+        <a href="#media"    class="nav-link">Media</a>
         <a href="#calendar" class="nav-link">Calendar</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#contact"  class="nav-link">Contact</a>
       </nav>
     </div>
   </header>
@@ -125,7 +140,7 @@
             <h3>Berlin Philharmonie</h3>
             <p>Berlin, Germany</p>
           </div>
-          <a class="ticket-btn" href="#">Tickets →</a>
+          <a class="ticket-btn" href="#">Tickets</a>
         </div>
         <div class="event" data-animate>
           <div class="event-date">
@@ -136,7 +151,7 @@
             <h3>Royal Albert Hall</h3>
             <p>London, United Kingdom</p>
           </div>
-          <a class="ticket-btn" href="#">Tickets →</a>
+          <a class="ticket-btn" href="#">Tickets</a>
         </div>
         <div class="event" data-animate>
           <div class="event-date">
@@ -147,7 +162,7 @@
             <h3>Carnegie Hall</h3>
             <p>New York, USA</p>
           </div>
-          <a class="ticket-btn" href="#">Tickets →</a>
+          <a class="ticket-btn" href="#">Tickets</a>
         </div>
       </div>
     </div>
@@ -161,7 +176,7 @@
       <p class="body-text" data-animate>For bookings, press enquiries, and collaborations.</p>
       <div class="form" data-animate>
         <div class="form-group">
-          <input type="text" id="f-name" placeholder=" " autocomplete="off">
+          <input type="text"  id="f-name"  placeholder=" " autocomplete="off">
           <label for="f-name">Name</label>
           <div class="form-line"></div>
         </div>
@@ -226,34 +241,30 @@
     });
 
     /* ── Scroll animations ── */
-    const observer = new IntersectionObserver(entries => {
+    const animObserver = new IntersectionObserver(entries => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
           entry.target.style.transitionDelay = `${i * 60}ms`;
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          animObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.12 });
-
-    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+    document.querySelectorAll('[data-animate]').forEach(el => animObserver.observe(el));
 
     /* ── Smooth scroll ── */
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
       });
     });
 
     /* ── Contact form ── */
     document.getElementById('sendBtn').addEventListener('click', () => {
-      const name   = document.getElementById('f-name').value.trim();
-      const email  = document.getElementById('f-email').value.trim();
-      const msg    = document.getElementById('f-msg').value.trim();
+      const name  = document.getElementById('f-name').value.trim();
+      const email = document.getElementById('f-email').value.trim();
+      const msg   = document.getElementById('f-msg').value.trim();
       if (!name || !email || !msg) return;
       const sendBtn = document.getElementById('sendBtn');
       sendBtn.textContent = 'Sent ✓';
@@ -261,5 +272,9 @@
       document.getElementById('formSuccess').classList.add('show');
     });
   </script>
+
+  <!-- Premium JS (loader · cursor · scroll progress · active nav) -->
+  <script src="tony-rymer-premium.js"></script>
+
 </body>
 </html>
