@@ -10,18 +10,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ── Bio page overrides ── */
-
-    /* Full-width text layout */
-    .bio-page-grid {
-      display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 100px;
-      align-items: start;
-    }
+    /* ── Bio page — full width text only ── */
 
     .bio-body {
-      max-width: 100%;
+      max-width: 780px;
+      margin: 0 auto;
     }
 
     .bio-body .body-text {
@@ -32,7 +25,7 @@
       color: var(--muted);
     }
 
-    /* Drop cap on first paragraph */
+    /* Drop cap */
     .bio-body .body-text:first-of-type::first-letter {
       font-family: var(--font-serif);
       font-size: 72px;
@@ -69,7 +62,7 @@
       font-style: normal;
     }
 
-    /* Chapter headings inside bio body */
+    /* Chapter headings */
     .bio-chapter {
       font-family: var(--font-serif);
       font-size: clamp(26px, 3vw, 42px);
@@ -80,176 +73,7 @@
       display: block;
     }
 
-    /* ── Sidebar ── */
-    .bio-sidebar {
-      position: sticky;
-      top: calc(var(--header-h) + 48px);
-    }
-
-    .sidebar-card {
-      background: var(--surface);
-      border: 1px solid var(--gold-border);
-      padding: 36px 32px;
-      margin-bottom: 28px;
-      position: relative;
-    }
-
-    /* Corner accent */
-    .sidebar-card::before {
-      content: '';
-      position: absolute;
-      top: -1px; left: -1px;
-      width: 20px; height: 20px;
-      border-top: 1px solid var(--gold);
-      border-left: 1px solid var(--gold);
-    }
-
-    .sidebar-title {
-      font-family: var(--font-sans);
-      font-size: 9px;
-      font-weight: 400;
-      letter-spacing: 0.38em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .sidebar-title::before {
-      content: '';
-      width: 24px; height: 1px;
-      background: var(--gold);
-      flex-shrink: 0;
-    }
-
-    /* Facts list */
-    .facts-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .facts-list li {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--gold-border);
-    }
-
-    .facts-list li:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .fact-label {
-      font-family: var(--font-sans);
-      font-size: 9px;
-      font-weight: 400;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    .fact-value {
-      font-family: var(--font-sans);
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--cream);
-      line-height: 1.5;
-    }
-
-    /* Timeline */
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 20px;
-      position: relative;
-      padding-bottom: 28px;
-    }
-
-    .timeline-item:last-child { padding-bottom: 0; }
-
-    /* Vertical line */
-    .timeline-item:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      top: 22px; left: 18px;
-      width: 1px;
-      height: calc(100% - 12px);
-      background: linear-gradient(to bottom, var(--gold-border), transparent);
-    }
-
-    .timeline-year {
-      font-family: var(--font-serif);
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--gold);
-      padding-top: 2px;
-      text-align: right;
-      position: relative;
-    }
-
-    /* Dot */
-    .timeline-year::after {
-      content: '';
-      position: absolute;
-      right: -12px; top: 7px;
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--gold);
-      border: 1px solid var(--bg);
-      box-shadow: 0 0 0 3px var(--gold-border);
-    }
-
-    .timeline-content {
-      font-family: var(--font-sans);
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .timeline-content strong {
-      display: block;
-      color: var(--cream);
-      font-weight: 400;
-      margin-bottom: 2px;
-    }
-
-    /* ── Repertoire tags ── */
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tag {
-      font-family: var(--font-sans);
-      font-size: 9px;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid var(--gold-border);
-      padding: 6px 14px;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .tag:hover {
-      background: var(--gold-dim);
-    }
-
-    /* ── Horizontal rule ornament ── */
+    /* Ornament divider */
     .ornament {
       display: flex;
       align-items: center;
@@ -272,34 +96,22 @@
       color: var(--gold);
     }
 
-    /* ── Responsive ── */
-    @media (max-width: 900px) {
-      .bio-page-grid {
-        grid-template-columns: 1fr;
-        gap: 60px;
-      }
-
-      .bio-sidebar {
-        position: static;
-      }
-
-      .bio-body .body-text:first-of-type::first-letter {
-        font-size: 56px;
-        line-height: 0.75;
-      }
-    }
-
     @media (max-width: 560px) {
       .pull-quote {
         padding-left: 20px;
-        font-size: 22px;
+        font-size: 20px;
+      }
+
+      .bio-body .body-text:first-of-type::first-letter {
+        font-size: 52px;
+        line-height: 0.75;
       }
     }
   </style>
 </head>
 <body style="overflow-x: hidden;">
 
-  <!-- ① Loader -->
+  <!-- Loader -->
   <div class="loader" id="loader" aria-hidden="true">
     <span class="loader-wordmark">Tony Rymer</span>
     <div class="loader-bar-wrap">
@@ -307,12 +119,8 @@
     </div>
   </div>
 
-  <!-- ② Scroll progress -->
+  <!-- Scroll progress -->
   <div class="scroll-progress" aria-hidden="true"></div>
-
-  <!-- ③ Custom cursor -->
-  <div class="cursor-dot"  aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
 
   <!-- Grain overlay -->
   <div class="grain" aria-hidden="true"></div>
@@ -352,180 +160,78 @@
     </div>
   </section>
 
-  <!-- BIO MAIN -->
+  <!-- BIO TEXT -->
   <section id="bio" class="section">
     <div class="section-inner">
-      <div class="bio-page-grid">
+      <div class="bio-body">
 
-        <!-- LEFT: full biography text -->
-        <div class="bio-body">
+        <div class="section-label" data-animate>Biography</div>
+        <h2 data-animate>The Artist</h2>
 
-          <div class="section-label" data-animate>Biography</div>
-          <h2 data-animate>The Artist</h2>
+        <p class="body-text" data-animate>
+          Tony Rymer is an internationally performing cellist known for expressive tone,
+          refined interpretation and commanding stage presence across Europe and the United States.
+          His playing bridges the classical tradition with a deeply personal voice, drawing audiences
+          into a world where technique and emotion are inseparable.
+        </p>
 
-          <p class="body-text" data-animate>
-            Tony Rymer is an internationally performing cellist known for expressive tone,
-            refined interpretation and commanding stage presence across Europe and the United States.
-            His playing bridges the classical tradition with a deeply personal voice, drawing audiences
-            into a world where technique and emotion are inseparable.
-          </p>
+        <p class="body-text" data-animate>
+          A graduate of the Royal Academy of Music, Rymer studied under some of the most
+          distinguished cellists of his generation. His formative years were defined by an
+          insatiable curiosity — not only for the cello repertoire, but for the full spectrum of
+          musical expression, from the architecture of Bach's suites to the raw expressionism of
+          twentieth-century works.
+        </p>
 
-          <p class="body-text" data-animate>
-            A graduate of the Royal Academy of Music, Rymer studied under some of the most
-            distinguished cellists of his generation. His formative years were defined by an
-            insatiable curiosity — not only for the cello repertoire, but for the full spectrum of
-            musical expression, from the architecture of Bach's suites to the raw expressionism of
-            twentieth-century works.
-          </p>
-
-          <div class="pull-quote" data-animate>
-            "A cellist of rare emotional intelligence and striking sonic depth."
-            <cite>— International Music Review</cite>
-          </div>
-
-          <span class="bio-chapter" data-animate>Early Life & Training</span>
-
-          <p class="body-text" data-animate>
-            Born into a musical family, Rymer began his cello studies at the age of six.
-            By sixteen he had won his first national competition, earning a full scholarship
-            to the Junior Conservatoire. His early studies were marked by the influence of
-            the great Romantic tradition, yet his teachers also encouraged him to engage deeply
-            with the modernist canon — an approach that would define his later artistry.
-          </p>
-
-          <p class="body-text" data-animate>
-            His time at the Royal Academy of Music proved transformative. Under the guidance
-            of internationally acclaimed faculty, Rymer developed the technical mastery and
-            interpretive depth that now characterise his performances. He graduated with
-            distinction, winning the Academy's highest prize for solo performance.
-          </p>
-
-          <div class="ornament" data-animate><span>✦</span></div>
-
-          <span class="bio-chapter" data-animate>International Career</span>
-
-          <p class="body-text" data-animate>
-            Rymer's professional career has taken him to the world's most prestigious venues —
-            from the Berlin Philharmonie and Carnegie Hall to the Royal Albert Hall and the
-            Concertgebouw in Amsterdam. He has appeared as soloist with leading orchestras
-            across Europe and the United States, performing concertos from Dvořák and Elgar
-            to Shostakovich and Lutosławski.
-          </p>
-
-          <p class="body-text" data-animate>
-            As a chamber musician, Rymer is equally celebrated. He is a founding member of
-            the Auryn Piano Trio, with whom he has recorded three critically acclaimed albums
-            and toured extensively across three continents. His collaborations with fellow
-            soloists are described by critics as marked by a rare musical generosity and
-            depth of communication.
-          </p>
-
-          <p class="body-text" data-animate>
-            Beyond the concert platform, Rymer is a passionate advocate for contemporary music.
-            He has premiered works written for him by leading composers of his generation, and
-            maintains close working relationships with living composers — believing that the
-            future of classical music lies in the dialogue between past and present.
-          </p>
-
+        <div class="pull-quote" data-animate>
+          "A cellist of rare emotional intelligence and striking sonic depth."
+          <cite>— International Music Review</cite>
         </div>
 
-        <!-- RIGHT: sidebar -->
-        <aside class="bio-sidebar">
+        <span class="bio-chapter" data-animate>Early Life &amp; Training</span>
 
-          <!-- Facts card -->
-          <div class="sidebar-card" data-animate>
-            <div class="sidebar-title">At a Glance</div>
-            <ul class="facts-list">
-              <li>
-                <span class="fact-label">Training</span>
-                <span class="fact-value">Royal Academy of Music, London</span>
-              </li>
-              <li>
-                <span class="fact-label">Speciality</span>
-                <span class="fact-value">Solo · Chamber · Contemporary</span>
-              </li>
-              <li>
-                <span class="fact-label">Based in</span>
-                <span class="fact-value">London, United Kingdom</span>
-              </li>
-              <li>
-                <span class="fact-label">Instrument</span>
-                <span class="fact-value">Matteo Goffriller, Venice 1710</span>
-              </li>
-              <li>
-                <span class="fact-label">Management</span>
-                <span class="fact-value">Intermusica Artists, London</span>
-              </li>
-            </ul>
-          </div>
+        <p class="body-text" data-animate>
+          Born into a musical family, Rymer began his cello studies at the age of six.
+          By sixteen he had won his first national competition, earning a full scholarship
+          to the Junior Conservatoire. His early studies were marked by the influence of
+          the great Romantic tradition, yet his teachers also encouraged him to engage deeply
+          with the modernist canon — an approach that would define his later artistry.
+        </p>
 
-          <!-- Timeline card -->
-          <div class="sidebar-card" data-animate>
-            <div class="sidebar-title">Timeline</div>
-            <div class="timeline">
-              <div class="timeline-item">
-                <span class="timeline-year">2008</span>
-                <div class="timeline-content">
-                  <strong>National Competition Winner</strong>
-                  First Prize, Young Musician of the Year
-                </div>
-              </div>
-              <div class="timeline-item">
-                <span class="timeline-year">2012</span>
-                <div class="timeline-content">
-                  <strong>Royal Academy of Music</strong>
-                  Graduated with Distinction
-                </div>
-              </div>
-              <div class="timeline-item">
-                <span class="timeline-year">2014</span>
-                <div class="timeline-content">
-                  <strong>Carnegie Hall Debut</strong>
-                  New York solo recital
-                </div>
-              </div>
-              <div class="timeline-item">
-                <span class="timeline-year">2017</span>
-                <div class="timeline-content">
-                  <strong>Berlin Philharmonie</strong>
-                  Soloist with the Berlin Philharmonic
-                </div>
-              </div>
-              <div class="timeline-item">
-                <span class="timeline-year">2021</span>
-                <div class="timeline-content">
-                  <strong>Auryn Piano Trio</strong>
-                  Founding member, debut recording
-                </div>
-              </div>
-              <div class="timeline-item">
-                <span class="timeline-year">2026</span>
-                <div class="timeline-content">
-                  <strong>World Tour</strong>
-                  Berlin · London · New York
-                </div>
-              </div>
-            </div>
-          </div>
+        <p class="body-text" data-animate>
+          His time at the Royal Academy of Music proved transformative. Under the guidance
+          of internationally acclaimed faculty, Rymer developed the technical mastery and
+          interpretive depth that now characterise his performances. He graduated with
+          distinction, winning the Academy's highest prize for solo performance.
+        </p>
 
-          <!-- Repertoire card -->
-          <div class="sidebar-card" data-animate>
-            <div class="sidebar-title">Repertoire</div>
-            <div class="tags">
-              <span class="tag">Bach</span>
-              <span class="tag">Beethoven</span>
-              <span class="tag">Dvořák</span>
-              <span class="tag">Elgar</span>
-              <span class="tag">Shostakovich</span>
-              <span class="tag">Britten</span>
-              <span class="tag">Lutosławski</span>
-              <span class="tag">Ligeti</span>
-              <span class="tag">Kurtág</span>
-              <span class="tag">Saariaho</span>
-            </div>
-          </div>
+        <div class="ornament" data-animate><span>✦</span></div>
 
-        </aside>
+        <span class="bio-chapter" data-animate>International Career</span>
+
+        <p class="body-text" data-animate>
+          Rymer's professional career has taken him to the world's most prestigious venues —
+          from the Berlin Philharmonie and Carnegie Hall to the Royal Albert Hall and the
+          Concertgebouw in Amsterdam. He has appeared as soloist with leading orchestras
+          across Europe and the United States, performing concertos from Dvořák and Elgar
+          to Shostakovich and Lutosławski.
+        </p>
+
+        <p class="body-text" data-animate>
+          As a chamber musician, Rymer is equally celebrated. He is a founding member of
+          the Auryn Piano Trio, with whom he has recorded three critically acclaimed albums
+          and toured extensively across three continents. His collaborations with fellow
+          soloists are described by critics as marked by a rare musical generosity and
+          depth of communication.
+        </p>
+
+        <p class="body-text" data-animate>
+          Beyond the concert platform, Rymer is a passionate advocate for contemporary music.
+          He has premiered works written for him by leading composers of his generation, and
+          maintains close working relationships with living composers — believing that the
+          future of classical music lies in the dialogue between past and present.
+        </p>
+
       </div>
     </div>
   </section>
@@ -594,37 +300,17 @@
       });
     });
 
-    /* ── Premium: Loader ── */
+    /* ── Loader ── */
     const loader = document.getElementById('loader');
     if (loader) setTimeout(() => loader.classList.add('hidden'), 1900);
 
-    /* ── Premium: Scroll progress ── */
+    /* ── Scroll progress ── */
     const progress = document.querySelector('.scroll-progress');
     if (progress) {
       window.addEventListener('scroll', () => {
         const total = document.documentElement.scrollHeight - window.innerHeight;
         progress.style.width = (window.scrollY / total * 100) + '%';
       }, { passive: true });
-    }
-
-    /* ── Premium: Custom cursor ── */
-    const dot  = document.querySelector('.cursor-dot');
-    const ring = document.querySelector('.cursor-ring');
-    if (dot && ring && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      let mx = 0, my = 0, rx = 0, ry = 0;
-      document.addEventListener('mousemove', e => {
-        mx = e.clientX; my = e.clientY;
-        dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-      });
-      (function loop() {
-        rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-        ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-        requestAnimationFrame(loop);
-      })();
-      document.querySelectorAll('a, button, .tag').forEach(el => {
-        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-      });
     }
   </script>
 
