@@ -962,52 +962,7 @@ h1, h2, blockquote, .event-info h3 {
   text-rendering: optimizeLegibility;
 }
 
-/* ══════════════════
-   CURSOR CUSTOM
-══════════════════ */
-@media (hover: hover) and (pointer: fine) {
-  body { cursor: none; }
-
-  .cursor-dot {
-    position: fixed;
-    width: 6px; height: 6px;
-    background: var(--gold);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s, opacity 0.3s, width 0.25s, height 0.25s, background 0.25s;
-    will-change: left, top;
-  }
-
-  .cursor-ring {
-    position: fixed;
-    width: 32px; height: 32px;
-    border: 1px solid var(--gold-border);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: width 0.4s var(--ease-out), height 0.4s var(--ease-out),
-                border-color 0.4s, transform 0.12s, opacity 0.3s;
-    will-change: left, top;
-  }
-
-  /* Hover states: cursor expands on interactive elements */
-  body.cursor-hover .cursor-dot {
-    width: 10px; height: 10px;
-    background: var(--gold-light);
-  }
-  body.cursor-hover .cursor-ring {
-    width: 52px; height: 52px;
-    border-color: var(--gold);
-  }
-
-  /* Links & buttons show default pointer via JS class */
-  a, button, .event, .btn, .hero-cta, .ticket-btn {
-    cursor: none;
-  }
-}
+/* cursor: default (normal system cursor) */
 
 /* ══════════════════
    PAGE LOADER
@@ -1628,12 +1583,7 @@ h2.visible::after {
   flex-shrink: 0;
 }
 
-/* ══════════════════
-   CURSOR — subtle trail blend
-══════════════════ */
-.cursor-dot {
-  mix-blend-mode: screen;
-}
+
 
 /* ══════════════════
    SECTION — staggered [data-animate] delay
@@ -1682,42 +1632,4 @@ h2.visible::after {
     padding-left: 0;
   }
   h2::after { display: none; }
-}
-/* ══════════════════
-   FIX HORIZONTAL SCROLL MOBILE
-══════════════════ */
-
-html {
-  overflow-x: hidden;
-}
-
-/* Limitar decorativos que desbordan */
-.footer::before {
-  width: 100%;
-  max-width: 100%;
-}
-
-.section--dark .section-inner::before {
-  right: 0;
-  overflow: hidden;
-  max-width: 100%;
-}
-
-.section--dark {
-  overflow: hidden;
-}
-
-.quote-section {
-  overflow: hidden;
-}
-
-.footer {
-  overflow: hidden;
-}
-
-/* Bio page grid en móvil */
-@media (max-width: 900px) {
-  .bio-page-grid {
-    grid-template-columns: 1fr !important;
-  }
 }
