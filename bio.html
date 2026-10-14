@@ -2,317 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Tony Rymer — Biography. International cellist, Royal Academy of Music graduate, soloist and chamber musician."/>
-  <title>Biography — Tony Rymer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* ── Bio page — full width text only ── */
-
-    .bio-body {
-      max-width: 780px;
-      margin: 0 auto;
-    }
-
-    .bio-body .body-text {
-      max-width: 100%;
-      font-size: 16px;
-      line-height: 2;
-      margin-bottom: 28px;
-      color: var(--muted);
-    }
-
-    /* Drop cap */
-    .bio-body .body-text:first-of-type::first-letter {
-      font-family: var(--font-serif);
-      font-size: 72px;
-      font-weight: 300;
-      float: left;
-      line-height: 0.72;
-      margin-right: 12px;
-      margin-top: 8px;
-      color: var(--gold);
-    }
-
-    /* Pull quote */
-    .pull-quote {
-      font-family: var(--font-serif);
-      font-size: clamp(22px, 2.8vw, 34px);
-      font-style: italic;
-      font-weight: 300;
-      line-height: 1.4;
-      color: var(--cream);
-      border-left: 1px solid var(--gold);
-      padding: 8px 0 8px 32px;
-      margin: 52px 0;
-    }
-
-    .pull-quote cite {
-      display: block;
-      margin-top: 16px;
-      font-family: var(--font-sans);
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-style: normal;
-    }
-
-    /* Chapter headings */
-    .bio-chapter {
-      font-family: var(--font-serif);
-      font-size: clamp(26px, 3vw, 42px);
-      font-weight: 300;
-      color: var(--cream);
-      margin: 64px 0 24px;
-      line-height: 1.1;
-      display: block;
-    }
-
-    /* Ornament divider */
-    .ornament {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin: 56px 0;
-      opacity: 0.35;
-    }
-
-    .ornament::before,
-    .ornament::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--gold-border);
-    }
-
-    .ornament span {
-      font-family: var(--font-serif);
-      font-size: 18px;
-      color: var(--gold);
-    }
-
-    @media (max-width: 560px) {
-      .pull-quote {
-        padding-left: 20px;
-        font-size: 20px;
-      }
-
-      .bio-body .body-text:first-of-type::first-letter {
-        font-size: 52px;
-        line-height: 0.75;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biography — Tony Rymer, Cellist</title>
+  <meta name="description" content="Biography of cellist Tony Rymer." />
+  <link rel="alternate" hreflang="en" href="bio.html" />
+  <link rel="alternate" hreflang="de" href="biografie.html" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2309080a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='30' fill='%23d4ac6e' letter-spacing='1'%3ETR%3C/text%3E%3C/svg%3E" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="preload" href="cormorant-garamond-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <meta name="theme-color" content="#09080a" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tony Rymer" />
+  <meta property="og:title" content="Biography — Tony Rymer, Cellist" />
+  <meta property="og:description" content="Biography of cellist Tony Rymer." />
+  <meta property="og:image" content="tony-rymer-2200.jpg" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body style="overflow-x: hidden;">
+<body>
 
-  <!-- Loader -->
-  <div class="loader" id="loader" aria-hidden="true">
-    <span class="loader-wordmark">Tony Rymer</span>
-    <div class="loader-bar-wrap">
-      <div class="loader-bar"></div>
-    </div>
-  </div>
-
-  <!-- Scroll progress -->
   <div class="scroll-progress" aria-hidden="true"></div>
-
-  <!-- Grain overlay -->
   <div class="grain" aria-hidden="true"></div>
 
   <!-- HEADER -->
   <header class="header" id="header">
     <div class="header-inner">
-      <a href="index.html" class="logo">TONY RYMER</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
+      <a href="index.html" class="logo" aria-label="Tony Rymer">TONY <span>RYMER</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">
         <span></span>
         <span></span>
       </button>
-      <nav class="nav" id="nav" role="navigation">
-        <a href="index.html"          class="nav-link">Home</a>
-        <a href="bio.html"            class="nav-link active">Bio</a>
-        <a href="index.html#media"    class="nav-link">Media</a>
-        <a href="index.html#calendar" class="nav-link">Calendar</a>
-        <a href="index.html#contact"  class="nav-link">Contact</a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="bio.html" class="nav-link active" aria-current="page">Biography</a>
+        <a href="media.html" class="nav-link">Media</a>
+        <a href="concerts.html" class="nav-link">Concerts</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+        <a href="biografie.html" class="nav-lang" hreflang="de" lang="de" aria-label="Deutsche Version">DE</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-photo" aria-hidden="true"></div>
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="hero-content">
-      <p class="eyebrow">International Cellist</p>
-      <h1>Bio<br>graphy</h1>
-      <div class="hero-divider" aria-hidden="true"></div>
-      <p class="sub">Artist · Performer · Musician</p>
-      <a href="#bio" class="hero-cta">Read more</a>
-    </div>
-    <div class="scroll-indicator" aria-hidden="true">
-      <div class="scroll-line"></div>
-      <span>scroll</span>
+  <section class="page-hero page-hero--photo">
+    <img src="tony-rymer-2200.jpg" alt="" />
+    <div>
+      <div class="section-label">Cellist</div>
+      <h1>Bio<em>graphy</em></h1>
     </div>
   </section>
 
-  <!-- BIO TEXT -->
-  <section id="bio" class="section">
+  <section class="section" id="bio">
     <div class="section-inner">
       <div class="bio-body">
-
-        <div class="section-label" data-animate>Biography</div>
-        <h2 data-animate>The Artist</h2>
-
-        <p class="body-text" data-animate>
-          Tony Rymer is an internationally performing cellist known for expressive tone,
-          refined interpretation and commanding stage presence across Europe and the United States.
-          His playing bridges the classical tradition with a deeply personal voice, drawing audiences
-          into a world where technique and emotion are inseparable.
-        </p>
-
-        <p class="body-text" data-animate>
-          A graduate of the Royal Academy of Music, Rymer studied under some of the most
-          distinguished cellists of his generation. His formative years were defined by an
-          insatiable curiosity — not only for the cello repertoire, but for the full spectrum of
-          musical expression, from the architecture of Bach's suites to the raw expressionism of
-          twentieth-century works.
-        </p>
-
-        <div class="pull-quote" data-animate>
-          "A cellist of rare emotional intelligence and striking sonic depth."
-          <cite>— International Music Review</cite>
+        <p class="body-text lead" data-animate>Boston-born cellist Tony Rymer has appeared as a concerto soloist with the Atlanta Symphony, the Boston Pops, the Cleveland Orchestra, the Detroit Symphony and the Pittsburgh Symphony, among others.</p>
+        <p class="body-text" data-animate>He won First Prize at the Sphinx Competition (Senior Division) and at the Washington International Competition, Second Prize at the George Enescu International Competition in 2014 and Third Prize at the Stulberg International String Competition. He has been heard as a soloist on WGBH Boston, WCLV Cleveland, NPR’s <em>Performance Today</em> and at the BBC Proms, and was one of the first recipients of the Jack Kent Cooke Young Artist Award on NPR’s <em>From the Top</em>.</p>
+        <span class="bio-chapter" data-animate>Chamber music</span>
+        <p class="body-text" data-animate>Chamber music lies at the heart of his work. He has performed with Hilary Hahn, Itzhak Perlman, Midori, Ani Kavafian, Miriam Fried, Kim Kashkashian, Paul Katz, Martin Helmchen and Dénes Várjon, and with members of the Guarneri, Takács, Juilliard, Orion and Cleveland quartets.</p>
+        <p class="body-text" data-animate>He is a regular guest at festivals and concert series in the Americas, Europe and Asia, including Marlboro Music, the Ravinia Steans Music Institute, the Perlman Music Program, the Bard Music Festival, Krzyzowa Music, Festival del Lago, the Apple Hill Center for Chamber Music, the Leeds International Concert Series, Brooklyn Chamber Music Society and Musical Masterworks, and has appeared with the Kaleidoscope Chamber Collective.</p>
+        <div class="ornament" data-animate aria-hidden="true"><span>✦</span></div>
+        <span class="bio-chapter" data-animate>Training</span>
+        <p class="body-text" data-animate>Tony Rymer began playing the cello at the age of five in Boston. He was a Project STEP scholarship student from 1996 to 2007 and attended the Walnut Hill School for the Arts. He earned his Bachelor’s and Master’s degrees at the New England Conservatory with Paul Katz and Laurence Lesser as holder of the Laurence Lesser Presidential Scholarship, and went on to complete a further Master of Music with highest marks in the class of Frans Helmerson at the Hochschule für Musik Hanns Eisler Berlin.</p>
+        <p class="body-text" data-animate>He has also worked privately with Yo-Yo Ma and taken part in master classes with Anner Bylsma, Gary Hoffman, Steven Isserlis and Pieter Wispelwey.</p>
+        <div class="instrument" data-animate>
+          <div class="section-label">Instrument</div>
+          <p>He plays a cello by Jean-Baptiste Vuillaume, Paris, generously on loan from the Deutsche Stiftung Musikleben.</p>
         </div>
-
-        <span class="bio-chapter" data-animate>Early Life &amp; Training</span>
-
-        <p class="body-text" data-animate>
-          Born into a musical family, Rymer began his cello studies at the age of six.
-          By sixteen he had won his first national competition, earning a full scholarship
-          to the Junior Conservatoire. His early studies were marked by the influence of
-          the great Romantic tradition, yet his teachers also encouraged him to engage deeply
-          with the modernist canon — an approach that would define his later artistry.
-        </p>
-
-        <p class="body-text" data-animate>
-          His time at the Royal Academy of Music proved transformative. Under the guidance
-          of internationally acclaimed faculty, Rymer developed the technical mastery and
-          interpretive depth that now characterise his performances. He graduated with
-          distinction, winning the Academy's highest prize for solo performance.
-        </p>
-
-        <div class="ornament" data-animate><span>✦</span></div>
-
-        <span class="bio-chapter" data-animate>International Career</span>
-
-        <p class="body-text" data-animate>
-          Rymer's professional career has taken him to the world's most prestigious venues —
-          from the Berlin Philharmonie and Carnegie Hall to the Royal Albert Hall and the
-          Concertgebouw in Amsterdam. He has appeared as soloist with leading orchestras
-          across Europe and the United States, performing concertos from Dvořák and Elgar
-          to Shostakovich and Lutosławski.
-        </p>
-
-        <p class="body-text" data-animate>
-          As a chamber musician, Rymer is equally celebrated. He is a founding member of
-          the Auryn Piano Trio, with whom he has recorded three critically acclaimed albums
-          and toured extensively across three continents. His collaborations with fellow
-          soloists are described by critics as marked by a rare musical generosity and
-          depth of communication.
-        </p>
-
-        <p class="body-text" data-animate>
-          Beyond the concert platform, Rymer is a passionate advocate for contemporary music.
-          He has premiered works written for him by leading composers of his generation, and
-          maintains close working relationships with living composers — believing that the
-          future of classical music lies in the dialogue between past and present.
-        </p>
-
       </div>
     </div>
   </section>
+
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-left">
+      <div>
         <div class="footer-logo">TONY RYMER</div>
-        <div class="footer-role">Cellist · International Performer</div>
+        <div class="footer-role">Cellist</div>
       </div>
-      <div class="footer-center">
-        <p class="footer-quote">"Music is not played, it is revealed."</p>
-      </div>
-      <div class="footer-right">
-        <a href="#" class="footer-link">Instagram</a>
-        <a href="#" class="footer-link">YouTube</a>
-        <a href="#" class="footer-link">Spotify</a>
-      </div>
+      <nav class="footer-nav">
+        <a href="index.html#contact" class="footer-link">Contact</a>
+        <a href="imprint.html" class="footer-link">Imprint</a>
+        <a href="privacy.html" class="footer-link">Privacy</a>
+        <a href="#" class="footer-link" data-cookie-reset>Cookie settings</a>
+      </nav>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Tony Rymer. All rights reserved.</span>
-    </div>
+    <div class="footer-bottom">&copy; <span id="year"></span> Tony Rymer. All rights reserved.</div>
   </footer>
 
-  <script>
-    /* ── Header scroll ── */
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 60);
-    }, { passive: true });
+  <!-- COOKIE BANNER (only on pages with YouTube videos) -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookies" style="display:none;">
+    <p>This website only uses cookies when you play an embedded YouTube video. <a href="privacy.html">Privacy policy</a></p>
+    <div class="cookie-actions">
+      <button class="btn btn--gold" type="button" onclick="acceptCookies()">Accept</button>
+      <button class="btn" type="button" onclick="rejectCookies()">Reject</button>
+    </div>
+  </div>
 
-    /* ── Mobile nav ── */
-    const nav = document.getElementById('nav');
-    const btn = document.getElementById('menuBtn');
-    btn.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      btn.classList.toggle('open', open);
-      document.body.classList.toggle('nav-open', open);
-    });
-    document.querySelectorAll('.nav-link').forEach(a => {
-      a.addEventListener('click', () => {
-        nav.classList.remove('open');
-        btn.classList.remove('open');
-        document.body.classList.remove('nav-open');
-      });
-    });
-
-    /* ── Scroll animations ── */
-    const animObserver = new IntersectionObserver(entries => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          entry.target.style.transitionDelay = `${i * 60}ms`;
-          entry.target.classList.add('visible');
-          animObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('[data-animate]').forEach(el => animObserver.observe(el));
-
-    /* ── Smooth scroll ── */
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
-      });
-    });
-
-    /* ── Loader ── */
-    const loader = document.getElementById('loader');
-    if (loader) setTimeout(() => loader.classList.add('hidden'), 1900);
-
-    /* ── Scroll progress ── */
-    const progress = document.querySelector('.scroll-progress');
-    if (progress) {
-      window.addEventListener('scroll', () => {
-        const total = document.documentElement.scrollHeight - window.innerHeight;
-        progress.style.width = (window.scrollY / total * 100) + '%';
-      }, { passive: true });
-    }
-  </script>
-
+  <script src="site.js"></script>
 </body>
 </html>

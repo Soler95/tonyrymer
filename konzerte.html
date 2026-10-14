@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Konzerte — Tony Rymer, Cellist</title>
+  <meta name="description" content="Nächste Konzerte des Cellisten Tony Rymer." />
+  <link rel="alternate" hreflang="en" href="concerts.html" />
+  <link rel="alternate" hreflang="de" href="konzerte.html" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2309080a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='30' fill='%23d4ac6e' letter-spacing='1'%3ETR%3C/text%3E%3C/svg%3E" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="preload" href="cormorant-garamond-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <meta name="theme-color" content="#09080a" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tony Rymer" />
+  <meta property="og:title" content="Konzerte — Tony Rymer, Cellist" />
+  <meta property="og:description" content="Nächste Konzerte des Cellisten Tony Rymer." />
+  <meta property="og:image" content="tony-rymer-2200.jpg" />
+  <meta property="og:locale" content="de_DE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="de.html" class="logo" aria-label="Tony Rymer">TONY <span>RYMER</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menü öffnen oder schließen" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <a href="de.html" class="nav-link">Start</a>
+        <a href="biografie.html" class="nav-link">Biografie</a>
+        <a href="medien.html" class="nav-link">Medien</a>
+        <a href="konzerte.html" class="nav-link active" aria-current="page">Konzerte</a>
+        <a href="de.html#contact" class="nav-link">Kontakt</a>
+        <a href="concerts.html" class="nav-lang" hreflang="en" lang="en" aria-label="English version">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="section-label">Kalender</div>
+    <h1>Konzerte</h1>
+  </section>
+
+  <section class="section" id="calendar">
+    <div class="section-inner">
+      <div class="events" id="eventsList" data-sheet="1pydU2JADQagQDdhWXr5INKmDRZ-MXWf9yGnrt_BLsj0">
+        <p>Konzerte werden geladen …</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">TONY RYMER</div>
+        <div class="footer-role">Cellist</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="de.html#contact" class="footer-link">Kontakt</a>
+        <a href="impressum.html" class="footer-link">Impressum</a>
+        <a href="datenschutz.html" class="footer-link">Datenschutz</a>
+        <a href="#" class="footer-link" data-cookie-reset>Cookie-Einstellungen</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">&copy; <span id="year"></span> Tony Rymer. Alle Rechte vorbehalten.</div>
+  </footer>
+
+  <!-- COOKIE BANNER (only on pages with YouTube videos) -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookies" style="display:none;">
+    <p>Diese Website verwendet Cookies nur, wenn Sie ein eingebettetes YouTube-Video abspielen. <a href="datenschutz.html">Datenschutzerklärung</a></p>
+    <div class="cookie-actions">
+      <button class="btn btn--gold" type="button" onclick="acceptCookies()">Akzeptieren</button>
+      <button class="btn" type="button" onclick="rejectCookies()">Ablehnen</button>
+    </div>
+  </div>
+
+  <script src="site.js"></script>
+  <script src="concerts.js"></script>
+</body>
+</html>

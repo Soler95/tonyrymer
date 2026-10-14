@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media — Tony Rymer, Cellist</title>
+  <meta name="description" content="Videos and press photos of cellist Tony Rymer." />
+  <link rel="alternate" hreflang="en" href="media.html" />
+  <link rel="alternate" hreflang="de" href="medien.html" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2309080a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='30' fill='%23d4ac6e' letter-spacing='1'%3ETR%3C/text%3E%3C/svg%3E" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="preload" href="cormorant-garamond-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <meta name="theme-color" content="#09080a" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tony Rymer" />
+  <meta property="og:title" content="Media — Tony Rymer, Cellist" />
+  <meta property="og:description" content="Videos and press photos of cellist Tony Rymer." />
+  <meta property="og:image" content="tony-rymer-2200.jpg" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Tony Rymer">TONY <span>RYMER</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="bio.html" class="nav-link">Biography</a>
+        <a href="media.html" class="nav-link active" aria-current="page">Media</a>
+        <a href="concerts.html" class="nav-link">Concerts</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+        <a href="medien.html" class="nav-lang" hreflang="de" lang="de" aria-label="Deutsche Version">DE</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="section-label">Media</div>
+    <h1>Videos &amp; <em>Photos</em></h1>
+  </section>
+
+  <section class="section" id="videos">
+    <div class="section-inner">
+      <div class="section-label" data-animate>Video</div>
+      <h2 data-animate>Live <em>Performance</em></h2>
+      <div class="video-grid">
+      <figure class="video-wrapper" data-animate>
+        <div class="video-corners" aria-hidden="true"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
+        <div class="video-frame" data-video="grtOob1WED0" data-title="Tony Rymer, cello" style="background-image:url('tony-rymer-1100.jpg')">
+          <button class="video-consent" type="button">
+            <span class="video-consent__play" aria-hidden="true"></span>
+            <span class="video-consent__text">Play video</span>
+            <span class="video-consent__note">Playing this video loads content from YouTube (Google).</span>
+          </button>
+        </div>
+        <figcaption class="video-caption">Tony Rymer, cello</figcaption>
+      </figure>
+        <!-- TO ADD A VIDEO: copy the <figure> above and change data-video (the YouTube ID after "watch?v=") and the caption. -->
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface" id="photos">
+    <div class="section-inner">
+      <div class="section-label" data-animate>Press photos</div>
+      <h2 data-animate>Photos</h2>
+      <div class="photo-grid">
+        <figure data-animate>
+          <img src="tony-rymer-1100.jpg" alt="Tony Rymer with his cello" loading="lazy" />
+          <figcaption><span>Tony Rymer</span><a href="DSC_9597ed9.jpg" download>Download (high resolution)</a></figcaption>
+        </figure>
+        <!-- TO ADD A PHOTO: upload the image to the repository and copy the <figure> above, changing the file names. -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">TONY RYMER</div>
+        <div class="footer-role">Cellist</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html#contact" class="footer-link">Contact</a>
+        <a href="imprint.html" class="footer-link">Imprint</a>
+        <a href="privacy.html" class="footer-link">Privacy</a>
+        <a href="#" class="footer-link" data-cookie-reset>Cookie settings</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">&copy; <span id="year"></span> Tony Rymer. All rights reserved.</div>
+  </footer>
+
+  <!-- COOKIE BANNER (only on pages with YouTube videos) -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookies" style="display:none;">
+    <p>This website only uses cookies when you play an embedded YouTube video. <a href="privacy.html">Privacy policy</a></p>
+    <div class="cookie-actions">
+      <button class="btn btn--gold" type="button" onclick="acceptCookies()">Accept</button>
+      <button class="btn" type="button" onclick="rejectCookies()">Reject</button>
+    </div>
+  </div>
+
+  <script src="site.js"></script>
+</body>
+</html>
